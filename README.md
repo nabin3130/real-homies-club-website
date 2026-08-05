@@ -5,8 +5,6 @@ A branded community landing page designed for Real Homies Club, bringing togethe
 
 The website provides a central hub where community members can discover content, access social platforms, and connect with the project's identity through a clean and engaging user experience.
 
-![Real Homies Club](assets/homepage.png)
-
 ## Highlights
 
 Community Branding → Social Hub → Content Discovery → Collaboration
@@ -31,9 +29,6 @@ Community Branding → Social Hub → Content Discovery → Collaboration
 ## Live Demo
 
 https://real-homies-club.vercel.app/<img width="1426" height="761" alt="realhomiesclub_web" src="https://github.com/user-attachments/assets/efc16d07-0466-4e16-92a8-d66ca37738a3" />
-
-
-> Replace the URL above with your actual Vercel domain if it's different.
 
 ## Why I built this
 
