@@ -28,7 +28,7 @@ Community Branding → Social Hub → Content Discovery → Collaboration
 
 ## Live Demo
 
-https://real-homies-club.vercel.app/<img width="1426" height="761" alt="realhomiesclub_web" src="https://github.com/user-attachments/assets/efc16d07-0466-4e16-92a8-d66ca37738a3" />
+https://real-homies-club.vercel.app/
 
 ## Why I built this
 
