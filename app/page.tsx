@@ -352,7 +352,7 @@ export default function Home() {
         <div className="selected-work-heading">
           <p className="section-label">WORK</p>
 
-          <h2>On the ground,<br />where ideas meet people.</h2>
+          <h2>On the ground, where ideas meet people.</h2>
         </div>
 
         <WorkGrid />

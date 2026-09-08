@@ -887,6 +887,179 @@ main {
   }
 }
 
+/* Site-wide typography scale */
+.brand {
+  font-size: 15px;
+}
+
+.nav-links,
+.mobile-menu-links a {
+  font-size: 16px;
+}
+
+.eyebrow,
+.section-label,
+.project-category,
+.project-story-label {
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.hero h1 {
+  font-size: clamp(64px, 5vw, 80px);
+  line-height: 0.98;
+}
+
+.hero-description {
+  font-size: clamp(18px, 1.35vw, 20px);
+}
+
+.about-heading,
+.work h2,
+.selected-work-heading h2,
+.featured-teams-heading h2,
+.contact h2,
+.project-content-heading h2,
+.project-next h2 {
+  font-size: clamp(44px, 4vw, 56px);
+  line-height: 1.02;
+}
+
+.about-copy p,
+.work-card p,
+.contact p,
+.project-content-heading > p,
+.tiktok-feature-copy > p,
+.project-story-copy p {
+  font-size: clamp(18px, 1.4vw, 20px);
+}
+
+.work-card h3,
+.work-tile-copy h3,
+.tiktok-feature-copy h3 {
+  font-size: clamp(28px, 2.5vw, 34px);
+  line-height: 1.08;
+}
+
+.work-card-top,
+.work-tile-copy p,
+.project-location,
+.project-intro-meta p,
+.project-story-label,
+.project-services span,
+.featured-teams-note {
+  font-size: clamp(15px, 1.15vw, 16px);
+}
+
+.work-card a,
+.button,
+.text-link,
+.project-back,
+.project-external-button,
+.project-back-button {
+  font-size: 16px;
+}
+
+.footer {
+  font-size: 14px;
+}
+
+.featured-teams-heading h2,
+.selected-work-heading h2 {
+  max-width: none;
+}
+
+.contact h2 {
+  white-space: nowrap;
+}
+
+.project-intro h1 {
+  max-width: 1040px;
+  font-size: clamp(64px, 6.5vw, 80px);
+  line-height: 0.96;
+}
+
+.project-intro-line {
+  font-size: clamp(20px, 2vw, 28px);
+}
+
+.project-story-copy > p:first-child,
+.project-services p {
+  font-size: clamp(20px, 1.8vw, 24px);
+}
+
+@media (max-width: 900px) {
+  .contact h2 {
+    white-space: normal;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 8vw, 68px);
+  }
+
+  .project-intro h1 {
+    font-size: clamp(52px, 9vw, 68px);
+  }
+}
+
+@media (max-width: 560px) {
+  .brand,
+  .nav-links,
+  .mobile-menu-links a {
+    font-size: 15px;
+  }
+
+  .brand > span:last-child {
+    max-width: none;
+    font-size: 13px;
+  }
+
+  .eyebrow,
+  .section-label,
+  .project-category,
+  .project-story-label {
+    font-size: 14px;
+  }
+
+  .hero h1,
+  .project-intro h1 {
+    font-size: clamp(44px, 13vw, 56px);
+    line-height: 1;
+    white-space: normal;
+  }
+
+  .about-heading,
+  .work h2,
+  .selected-work-heading h2,
+  .featured-teams-heading h2,
+  .contact h2,
+  .project-content-heading h2,
+  .project-next h2 {
+    font-size: clamp(36px, 10.5vw, 44px);
+    line-height: 1.04;
+  }
+
+  .work-card h3,
+  .work-tile-copy h3,
+  .tiktok-feature-copy h3 {
+    font-size: clamp(26px, 8vw, 32px);
+  }
+
+  .about-copy p,
+  .work-card p,
+  .contact p,
+  .project-content-heading > p,
+  .tiktok-feature-copy > p,
+  .project-story-copy p,
+  .hero-description {
+    font-size: 17px;
+  }
+
+  .footer {
+    font-size: 14px;
+  }
+}
+
 /* Selected Work */
 
 .selected-work {
@@ -1911,7 +2084,46 @@ a.work-tile:hover .work-tile-image img {
     gap: 56px;
   }
 
-  .work-tile-copy {
+.work-tile-copy {
     padding-top: 20px;
   }
+}
+
+/* Final typography normalization */
+.brand { font-size: 15px; }
+.nav-links, .mobile-menu-links a { font-size: 16px; }
+.eyebrow, .section-label, .project-category, .project-story-label { font-size: 16px; line-height: 1.35; }
+.hero h1 { font-size: clamp(64px, 5vw, 80px); line-height: .98; }
+.hero-description { font-size: clamp(18px, 1.35vw, 20px); }
+.about-heading, .work h2, .selected-work-heading h2, .featured-teams-heading h2, .contact h2, .project-content-heading h2, .project-next h2 { font-size: clamp(44px, 4vw, 56px); line-height: 1.02; }
+.about-copy p, .work-card p, .contact p, .project-content-heading > p, .tiktok-feature-copy > p, .project-story-copy p { font-size: clamp(18px, 1.4vw, 20px); }
+.work-card h3, .work-tile-copy h3, .tiktok-feature-copy h3 { font-size: clamp(28px, 2.5vw, 34px); line-height: 1.08; }
+.work-card-top, .work-tile-copy p, .project-location, .project-intro-meta p, .project-story-label, .project-services span, .featured-teams-note { font-size: clamp(15px, 1.15vw, 16px); }
+.work-card a, .button, .text-link, .project-back, .project-external-button, .project-back-button { font-size: 16px; }
+.footer { font-size: 14px; }
+.featured-teams-heading h2, .selected-work-heading h2 { max-width: none; }
+.contact h2 { white-space: nowrap; }
+.project-intro h1 { max-width: 1040px; font-size: clamp(64px, 6.5vw, 80px); line-height: .96; }
+.project-intro-line { font-size: clamp(20px, 2vw, 28px); }
+.project-story-copy > p:first-child, .project-services p { font-size: clamp(20px, 1.8vw, 24px); }
+
+@media (max-width: 1100px) {
+  .contact h2 { white-space: normal; }
+}
+
+@media (max-width: 900px) {
+  .hero h1 { font-size: clamp(52px, 8vw, 68px); }
+  .project-intro h1 { font-size: clamp(52px, 9vw, 68px); }
+}
+
+@media (max-width: 560px) {
+  .brand, .nav-links, .mobile-menu-links a { font-size: 15px; }
+  .brand > span:last-child { max-width: none; font-size: 13px; }
+  .eyebrow, .section-label, .project-category, .project-story-label { font-size: 14px; }
+  .hero h1, .project-intro h1 { font-size: clamp(44px, 13vw, 56px); line-height: 1; white-space: normal; }
+  .headline-line { white-space: normal; }
+  .about-heading, .work h2, .selected-work-heading h2, .featured-teams-heading h2, .contact h2, .project-content-heading h2, .project-next h2 { font-size: clamp(36px, 10.5vw, 44px); line-height: 1.04; }
+  .work-card h3, .work-tile-copy h3, .tiktok-feature-copy h3 { font-size: clamp(26px, 8vw, 32px); }
+  .about-copy p, .work-card p, .contact p, .project-content-heading > p, .tiktok-feature-copy > p, .project-story-copy p, .hero-description { font-size: 17px; }
+  .footer { font-size: 14px; }
 }
