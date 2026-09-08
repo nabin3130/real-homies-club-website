@@ -1811,3 +1811,86 @@ main {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Work portfolio grid */
+.work-tile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 80px 32px;
+}
+
+.work-tile {
+  display: block;
+  min-width: 0;
+  color: var(--ink);
+}
+
+.work-tile-image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: rgba(23, 19, 29, 0.06);
+}
+
+.work-tile-image img {
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+a.work-tile:hover .work-tile-image img {
+  transform: scale(1.02);
+}
+
+.work-image-needed {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(23, 19, 29, 0.44);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.work-tile-copy {
+  padding-top: 24px;
+}
+
+.work-tile-copy h3 {
+  margin: 0 0 14px;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+
+.work-tile-copy p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.work-tile-copy .work-tile-place {
+  margin-top: 3px;
+  color: rgba(23, 19, 29, 0.65);
+  font-weight: 500;
+}
+
+@media (max-width: 680px) {
+  .work-tile-grid {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+}
+
+@media (max-width: 560px) {
+  .work-tile-grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .work-tile-copy {
+    padding-top: 20px;
+  }
+}

@@ -1,3 +1,5 @@
+import { WorkGrid } from "./components/WorkGrid";
+
 const workItems = [
   {
     number: "01",
@@ -348,42 +350,12 @@ export default function Home() {
         className="selected-work section-shell"
       >
         <div className="selected-work-heading">
-          <p className="section-label">SELECTED WORK</p>
+          <p className="section-label">WORK</p>
 
           <h2>On the ground,<br />where ideas meet people.</h2>
         </div>
 
-        <a
-          href="/work/seabw"
-          className="project-feature"
-          aria-label="View Southeast Asia Blockchain Week project"
-        >
-          <div className="project-image-wrap">
-            <img
-              src="/seabw-2026.jpeg"
-              alt="Southeast Asia Blockchain Week event in Bangkok"
-              className="project-image"
-            />
-
-            <span className="project-view">
-              View project
-              <span aria-hidden="true">↗</span>
-            </span>
-          </div>
-
-          <div className="project-meta">
-            <div>
-              <p className="project-category">CONFERENCE MEDIA</p>
-              <h3>Southeast Asia Blockchain Week</h3>
-            </div>
-
-            <p className="project-location">
-              Bangkok, Thailand
-              <br />
-              May 2026
-            </p>
-          </div>
-        </a>
+        <WorkGrid />
       </section>
 
       <section className="featured-teams section-shell">
