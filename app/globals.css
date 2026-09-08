@@ -1829,16 +1829,33 @@ main {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: rgba(23, 19, 29, 0.06);
+  border-radius: 16px;
 }
 
 .work-tile-image img {
   object-fit: cover;
+  border-radius: inherit;
   transition: transform 400ms ease;
 }
 
 .work-tile-image--contain img {
-  object-fit: contain;
+  object-fit: cover;
+}
+
+.work-tile:nth-child(1) .work-tile-image img {
+  object-position: left center;
+}
+
+.work-tile:nth-child(2) .work-tile-image img {
+  object-position: center center;
+}
+
+.work-tile:nth-child(3) .work-tile-image img {
+  object-position: center top;
+}
+
+.work-tile:nth-child(4) .work-tile-image img {
+  object-position: center center;
 }
 
 a.work-tile:hover .work-tile-image img {
