@@ -2127,3 +2127,37 @@ a.work-tile:hover .work-tile-image img {
   .about-copy p, .work-card p, .contact p, .project-content-heading > p, .tiktok-feature-copy > p, .project-story-copy p, .hero-description { font-size: 17px; }
   .footer { font-size: 14px; }
 }
+
+/* Desktop single-line editorial copy */
+@media (min-width: 1101px) {
+  .selected-work-heading {
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .selected-work-heading h2 {
+    font-size: 50px;
+    white-space: nowrap;
+  }
+
+  .featured-teams-note {
+    width: 100%;
+    max-width: none;
+    white-space: nowrap;
+  }
+
+  .contact > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .contact > div > p:not(.section-label) {
+    max-width: none;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+  .contact h2 {
+    white-space: nowrap;
+  }
+}
