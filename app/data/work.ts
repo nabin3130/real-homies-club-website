@@ -5,6 +5,7 @@ export type WorkItem = {
   date: string;
   image: string | null;
   imageAlt: string;
+  imageFit?: "cover" | "contain";
   externalUrl?: string;
   internalUrl?: string;
 };
@@ -15,24 +16,27 @@ export const workItems: WorkItem[] = [
     type: "Media Partner",
     location: "Seoul",
     date: "Sep 2026",
-    image: null,
-    imageAlt: "",
+    image: "/work-gwdc-2026.png",
+    imageAlt: "GWDC 2026 key visual",
+    imageFit: "contain",
   },
   {
     title: "WalletConnect Side Event",
     type: "Media Partner",
     location: "Seoul",
     date: "Aug 2026",
-    image: null,
-    imageAlt: "",
+    image: "/work-walletconnect-side-event.avif",
+    imageAlt: "WalletConnect State of Crypto, State of Payments event posters featuring real homies club as media partner",
+    imageFit: "contain",
   },
   {
     title: "WebX Side Event",
     type: "Media Partner",
     location: "Tokyo",
     date: "Jul 2026",
-    image: null,
-    imageAlt: "",
+    image: "/work-webx-side-event.jpeg",
+    imageAlt: "Cloud Club in Tokyo, BBAI X mini and WebX Shisha mix event artwork",
+    imageFit: "contain",
   },
   {
     title: "Southeast Asia Blockchain Week 2026",

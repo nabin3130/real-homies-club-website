@@ -5,7 +5,7 @@ import { workItems, type WorkItem } from "../data/work";
 function WorkTile({ item }: { item: WorkItem }) {
   const content = (
     <>
-      <div className="work-tile-image">
+      <div className={`work-tile-image work-tile-image--${item.imageFit ?? "cover"}`}>
         {item.image ? (
           <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 560px) 100vw, 50vw" />
         ) : (

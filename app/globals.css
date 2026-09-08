@@ -1837,6 +1837,10 @@ main {
   transition: transform 400ms ease;
 }
 
+.work-tile-image--contain img {
+  object-fit: contain;
+}
+
 a.work-tile:hover .work-tile-image img {
   transform: scale(1.02);
 }
