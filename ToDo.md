@@ -93,4 +93,89 @@ Before modifying the website:
 5. Reuse working code where appropriate.
 6. Avoid rewriting the entire website unless technically necessary.
 
-...
+---
+
+# 4. Architecture
+
+## 4.1 Global Layout
+
+Responsibilities:
+
+- Global navigation
+- Footer
+- Global typography
+- Global spacing
+- Responsive layout
+- SEO defaults
+
+Expected structure:
+
+- Header
+- Main content
+- Footer
+
+Input:
+
+- Navigation items
+- Social links
+- Contact information
+
+Output:
+
+- Consistent layout across the website
+
+---
+
+## 4.2 Content Data
+
+Content should be separated from UI components where practical.
+
+Create structured data for:
+
+### Conversations / Interviews
+
+Suggested fields:
+
+- title
+- project
+- person
+- event
+- thumbnail
+- platform
+- url
+- description
+- date
+
+Example structure:
+
+```ts
+{
+  title: "Interview title",
+  project: "Project name",
+  person: "Guest name",
+  event: "Event name",
+  thumbnail: "/images/example.jpg",
+  platform: "TikTok",
+  url: "https://...",
+  description: "Short description",
+  date: "2026-09"
+}
+```
+
+### Work / Partnerships
+
+Suggested fields:
+
+- title
+- category
+- partner
+- location
+- date
+- image
+- description
+- relatedContent
+- externalUrl
+
+This structure should allow new work and interview items to be added without rewriting the UI.
+
+---
