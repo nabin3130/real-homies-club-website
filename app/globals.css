@@ -1981,47 +1981,43 @@ html {
   box-shadow: 0 12px 32px rgba(23, 19, 29, .1);
 }
 
-/* Editorial service rows */
+/* Responsive service cards */
 .work {
   padding: var(--space-section) 0;
 }
 
 .work-grid {
-  grid-template-columns: 1fr;
-  gap: 0;
-  border-top: var(--border-editorial);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 28px;
 }
 
-.work-card,
-.work-card:nth-child(2),
-.work-card:nth-child(3) {
-  min-height: 0;
-  padding: 36px 0;
-  display: grid;
-  grid-template-columns: minmax(170px, .35fr) minmax(0, 1fr) auto;
-  align-items: start;
-  gap: 48px;
+.work-card {
+  min-width: 0;
+  min-height: 410px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
   color: var(--ink);
-  background: transparent;
-  border: 0;
-  border-bottom: var(--border-editorial);
-  border-radius: 0;
-  box-shadow: none;
+  background: var(--white);
+  border: 2px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 7px 7px 0 var(--ink);
 }
 
-.work-card:hover {
-  transform: none;
-  box-shadow: none;
-}
+.work-card:nth-child(2) { color: white; background: var(--purple); }
+.work-card:nth-child(3) { background: var(--yellow); }
 
 .work-card-top {
-  justify-content: flex-start;
-  gap: 24px;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .work-card h3 { margin-bottom: 14px; }
-.work-card p { max-width: 620px; }
-.work-card a { align-self: center; white-space: nowrap; }
+.work-card p { max-width: none; }
+.work-card a { align-self: flex-start; white-space: nowrap; }
 
 /* Let content and whitespace, rather than heavy framing, define these sections. */
 .about { padding: var(--space-section) 0; }
@@ -2079,12 +2075,26 @@ html {
 @media (max-width: 900px) {
   .hero h1 { font-size: clamp(52px, 8vw, 68px); }
   .project-intro h1 { font-size: clamp(52px, 9vw, 68px); }
-  .work-card {
-    grid-template-columns: 130px minmax(0, 1fr);
+
+  .work-grid {
+    grid-template-columns: 1fr;
     gap: 28px;
   }
-  .work-card a { grid-column: 2; align-self: start; }
+
+  .work-card {
+    min-height: 0;
+    padding: 28px;
+    gap: 30px;
+  }
+
+  .work-card a { align-self: flex-start; }
   .contact h2 { white-space: normal; }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 560px) {
@@ -2152,11 +2162,16 @@ html {
   }
 
   .work-card {
-    padding: 30px 0;
-    grid-template-columns: 1fr;
-    gap: 22px;
+    min-height: 0;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
     width: 100%;
     min-width: 0;
+    border: 2px solid var(--ink);
+    border-radius: 22px;
+    box-shadow: 6px 6px 0 var(--ink);
   }
 
   .work-card > div,
@@ -2167,11 +2182,11 @@ html {
   }
 
   .work-card-top {
-    justify-content: flex-start;
-    gap: 16px;
+    justify-content: space-between;
+    gap: 20px;
   }
 
-  .work-card a { grid-column: auto; }
+  .work-card a { align-self: flex-start; }
 
   .selected-work-heading {
     gap: 16px;
