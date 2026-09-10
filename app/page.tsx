@@ -14,7 +14,7 @@ const workItems = [
     category: "CONFERENCE MEDIA",
     title: "Stories from where Web3 happens.",
     description:
-      "As a conference media partner, we capture on-site conversations with founders, builders, and ecosystem teams.",
+      "We capture on-site conversations with founders, builders, and ecosystem teams.",
     cta: "View conference work",
     href: "#selected-work",
   },
@@ -23,7 +23,7 @@ const workItems = [
     category: "EVENTS & COMMUNITY",
     title: "We bring the right people into the room.",
     description:
-      "We host and support Web3 meetups, side events, and community gatherings built around real conversations.",
+      "We bring people together through meetups, side events, and community gatherings.",
     cta: "Explore our events",
     href: "#contact",
   },
@@ -32,7 +32,7 @@ const workItems = [
     category: "MEDIA BRAND",
     title: "Web3 stories, made for the feed.",
     description:
-      "Through short-form interviews and social content, we introduce the people and ideas shaping Web3.",
+      "Short-form interviews and social content featuring the people behind the ideas.",
     cta: "Watch our content",
     href: "https://www.tiktok.com/@realhomiesclub",
     external: true,
@@ -334,7 +334,6 @@ export default function Home() {
                 rel={item.external ? "noopener noreferrer" : undefined}
               >
                 {item.cta}
-                <span className="cta-arrow">↗</span>
               </a>
             </article>
           ))}
