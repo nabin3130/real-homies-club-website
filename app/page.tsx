@@ -17,7 +17,7 @@ const workItems = [
     description:
       "On-site conversations with founders, builders, and ecosystem teams.",
     cta: "View conference work",
-    href: "#selected-work",
+    href: "#work",
   },
   {
     number: "02",
@@ -305,9 +305,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="about section-shell">
+      <section className="about section-shell">
         <div className="about-grid">
-          <div className="about-content">
+          <div id="about" className="about-content">
             <p className="section-label">ABOUT</p>
 
             <h2 className="about-heading">
@@ -332,7 +332,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="work" className="work section-shell">
+      <section id="what-we-do" className="work section-shell">
         <div className="work-heading">
           <p className="section-label">WHAT WE DO</p>
           <h2>What we do</h2>
@@ -363,11 +363,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="selected-work"
-        className="selected-work section-shell"
-      >
-        <div className="selected-work-heading">
+      <section id="selected-work" className="selected-work section-shell">
+        <div id="work" className="selected-work-heading">
           <p className="section-label">WORK</p>
 
           <h2>On the ground, where ideas meet people.</h2>

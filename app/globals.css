@@ -1923,16 +1923,17 @@ a.work-tile:hover .work-tile-image img {
   --type-meta: clamp(15px, 1.1vw, 16px);
   --type-section: clamp(44px, 4vw, 56px);
   --shell-width: min(1180px, calc(100% - 40px));
-  --space-section: clamp(88px, 7vw, 104px);
+  --space-section: clamp(76px, 6vw, 92px);
   --space-label-title: 16px;
   --space-intro-content: 40px;
   --radius-image: 16px;
   --radius-card: 24px;
   --border-editorial: 1px solid var(--line);
+  --anchor-offset: 112px;
 }
 
 html {
-  scroll-padding-top: 110px;
+  scroll-padding-top: var(--anchor-offset);
 }
 
 .brand { font-size: 15px; }
@@ -2056,14 +2057,17 @@ html {
 }
 
 /* Let content and whitespace, rather than heavy framing, define these sections. */
-.about { padding: var(--space-section) 0; }
-.selected-work { padding: var(--space-section) 0; }
-.featured-teams { padding: var(--space-section) 0; }
+.about,
+.work,
+.selected-work,
+.featured-teams {
+  padding: var(--space-section) 0;
+}
 
 .about-grid {
-  grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.72fr);
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.85fr);
   align-items: center;
-  gap: clamp(56px, 8vw, 110px);
+  gap: clamp(56px, 7vw, 96px);
   margin-top: 0;
 }
 
@@ -2088,7 +2092,7 @@ html {
 
 .about-video-wrap {
   position: relative;
-  width: min(100%, 320px);
+  width: min(100%, 384px);
   aspect-ratio: 9 / 16;
   overflow: hidden;
   justify-self: end;
@@ -2254,7 +2258,23 @@ html {
   .contact h2 { white-space: nowrap; }
 }
 
+@media (min-width: 901px) {
+  .hero {
+    min-height: min(720px, calc(100vh - 140px));
+    padding: 64px 0 72px;
+  }
+
+  .about-copy p {
+    font-size: clamp(19px, 1.5vw, 21px);
+  }
+}
+
 @media (max-width: 900px) {
+  .hero {
+    gap: 48px;
+    padding: 72px 0 80px;
+  }
+
   .hero h1 { font-size: clamp(52px, 8vw, 68px); }
   .project-intro h1 { font-size: clamp(52px, 9vw, 68px); }
 
@@ -2304,20 +2324,13 @@ html {
     --type-body: 17px;
     --type-section: clamp(36px, 10.5vw, 44px);
     --shell-width: min(1180px, calc(100% - 24px));
-    --space-section: 72px;
+    --space-section: 64px;
     --space-label-title: 16px;
     --space-intro-content: 36px;
+    --anchor-offset: 84px;
   }
 
-  html { scroll-padding-top: 96px; }
-
-  #home,
-  #about,
-  #work,
-  #selected-work,
-  #contact {
-    scroll-margin-top: 96px;
-  }
+  html { scroll-padding-top: var(--anchor-offset); }
 
   .brand, .nav-links, .mobile-menu-links a { font-size: 15px; }
   .brand > span:last-child { max-width: none; font-size: 13px; }
