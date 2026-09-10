@@ -250,7 +250,7 @@ export default function Home() {
         <a
           href="#home"
           className="brand"
-          aria-label="Real Homies Club home"
+          aria-label="real homies club home"
         >
           <img
             src="/real-homies-logo.png"
@@ -258,7 +258,7 @@ export default function Home() {
             className="brand-mark"
           />
 
-          <span>REAL HOMIES CLUB</span>
+          <span>real homies club</span>
         </a>
 
         <nav className="nav-links" aria-label="Main navigation">
@@ -306,27 +306,26 @@ export default function Home() {
       </section>
 
       <section id="about" className="about section-shell">
-        <p className="section-label">ABOUT</p>
-
         <div className="about-grid">
-          <h2 className="about-heading">
-            We tell the stories behind the ideas.
-          </h2>
+          <div className="about-content">
+            <p className="section-label">ABOUT</p>
 
-          <div className="about-copy">
-            <p>
-              Real Homies Club is an independent media and event studio
-              built around one simple belief: people connect with people
-              before they connect with ideas.
-            </p>
+            <h2 className="about-heading">
+              We tell the stories behind the ideas.
+            </h2>
 
-            <p>
-              We create conversations, interviews, and shared experiences
-              that uncover the people behind the products, companies, and
-              communities shaping our world.
-            </p>
+            <div className="about-copy">
+              <p>
+                real homies club is an independent media and event studio built
+                around a simple idea: people connect with people before they
+                connect with ideas.
+              </p>
 
-            <p>That&apos;s who we&apos;re here to meet.</p>
+              <p>
+                Through interviews and shared experiences, we uncover the
+                people behind the stories.
+              </p>
+            </div>
           </div>
 
           <AboutVideo />

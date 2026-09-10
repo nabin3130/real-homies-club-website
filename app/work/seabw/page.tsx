@@ -152,7 +152,7 @@ export default function SeabwProjectPage() {
           <div className="tiktok-player-wrap">
             <iframe
               src={`https://www.tiktok.com/player/v1/${tiktokVideo.id}`}
-              title="Real Homies Club at Southeast Asia Blockchain Week"
+              title="real homies club at Southeast Asia Blockchain Week"
               loading="lazy"
               allowFullScreen
             />
@@ -234,7 +234,7 @@ function PageHeader() {
       <Link
         href="/#home"
         className="brand"
-        aria-label="Real Homies Club home"
+        aria-label="real homies club home"
       >
         <Image
           src="/real-homies-logo.png"
@@ -245,7 +245,7 @@ function PageHeader() {
           priority
         />
 
-        <span>REAL HOMIES CLUB</span>
+        <span>real homies club</span>
       </Link>
 
       <nav className="nav-links" aria-label="Main navigation">

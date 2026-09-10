@@ -1,7 +1,7 @@
-# Real Homies Club
+# real homies club
 <img width="1426" height="761" alt="realhomiesclub_web" src="https://github.com/user-attachments/assets/1759ecad-a713-4319-9d69-b76a045ce11e" />
 
-A branded community landing page designed for Real Homies Club, bringing together social channels, community updates, and collaboration opportunities in one destination.
+A branded community landing page designed for real homies club, bringing together social channels, community updates, and collaboration opportunities in one destination.
 
 The website provides a central hub where community members can discover content, access social platforms, and connect with the project's identity through a clean and engaging user experience.
 

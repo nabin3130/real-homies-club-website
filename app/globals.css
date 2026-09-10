@@ -2061,16 +2061,37 @@ html {
 .featured-teams { padding: var(--space-section) 0; }
 
 .about-grid {
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr) minmax(190px, 0.48fr);
-  gap: clamp(36px, 4vw, 64px);
-  margin-top: var(--space-intro-content);
+  grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.72fr);
+  align-items: center;
+  gap: clamp(56px, 8vw, 110px);
+  margin-top: 0;
+}
+
+.about-content {
+  min-width: 0;
+  max-width: 700px;
+}
+
+.about-content .section-label {
+  margin-bottom: var(--space-label-title);
+}
+
+.about-copy {
+  max-width: 620px;
+  padding-top: 0;
+  margin-top: 28px;
+}
+
+.about-copy p {
+  margin-bottom: 18px;
 }
 
 .about-video-wrap {
   position: relative;
-  width: 100%;
+  width: min(100%, 320px);
   aspect-ratio: 9 / 16;
   overflow: hidden;
+  justify-self: end;
   border-radius: var(--radius-image);
   background: var(--line);
 }
@@ -2243,6 +2264,7 @@ html {
 
   .about-video-wrap {
     width: min(100%, 340px);
+    justify-self: start;
   }
 
   .work-grid {
@@ -2329,14 +2351,18 @@ html {
 
   .about-grid {
     gap: 32px;
-    margin-top: 28px;
+    margin-top: 0;
   }
 
   .about-video-wrap {
     width: min(100%, 320px);
   }
 
-  .about-copy p { margin-bottom: 22px; }
+  .about-copy {
+    margin-top: 24px;
+  }
+
+  .about-copy p { margin-bottom: 18px; }
 
   .work-heading {
     gap: 16px;

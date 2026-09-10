@@ -43,7 +43,7 @@ export function AboutVideo() {
         disablePictureInPicture
         tabIndex={-1}
       >
-        <source src="/real-homies-club-about.mp4" type="video/mp4" />
+        <source src="/real-homies-club-about-interviews.mp4" type="video/mp4" />
       </video>
     </div>
   );
