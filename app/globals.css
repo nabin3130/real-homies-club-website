@@ -2061,7 +2061,26 @@ html {
 .featured-teams { padding: var(--space-section) 0; }
 
 .about-grid {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr) minmax(190px, 0.48fr);
+  gap: clamp(36px, 4vw, 64px);
   margin-top: var(--space-intro-content);
+}
+
+.about-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: var(--radius-image);
+  background: var(--line);
+}
+
+.about-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
 }
 
 .selected-work-heading { margin-bottom: var(--space-intro-content); }
@@ -2218,6 +2237,14 @@ html {
   .hero h1 { font-size: clamp(52px, 8vw, 68px); }
   .project-intro h1 { font-size: clamp(52px, 9vw, 68px); }
 
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-video-wrap {
+    width: min(100%, 340px);
+  }
+
   .work-grid {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -2303,6 +2330,10 @@ html {
   .about-grid {
     gap: 32px;
     margin-top: 28px;
+  }
+
+  .about-video-wrap {
+    width: min(100%, 320px);
   }
 
   .about-copy p { margin-bottom: 22px; }

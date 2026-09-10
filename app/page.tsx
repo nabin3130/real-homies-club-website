@@ -1,3 +1,4 @@
+import { AboutVideo } from "./components/AboutVideo";
 import { WorkGrid } from "./components/WorkGrid";
 import { MobileMenu } from "./components/MobileMenu";
 
@@ -327,6 +328,8 @@ export default function Home() {
 
             <p>That&apos;s who we&apos;re here to meet.</p>
           </div>
+
+          <AboutVideo />
         </div>
       </section>
 
