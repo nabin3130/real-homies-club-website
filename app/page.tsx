@@ -14,7 +14,7 @@ const workItems = [
     category: "CONFERENCE MEDIA",
     title: "Stories from where Web3 happens.",
     description:
-      "We capture on-site conversations with founders, builders, and ecosystem teams.",
+      "On-site conversations with founders, builders, and ecosystem teams.",
     cta: "View conference work",
     href: "#selected-work",
   },
@@ -23,7 +23,7 @@ const workItems = [
     category: "EVENTS & COMMUNITY",
     title: "We bring the right people into the room.",
     description:
-      "We bring people together through meetups, side events, and community gatherings.",
+      "Meetups, side events, and community gatherings built around real conversations.",
     cta: "Explore our events",
     href: "#contact",
   },
