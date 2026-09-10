@@ -1,5 +1,6 @@
 export type WorkItem = {
   title: string;
+  officialTitle: string;
   type: string;
   location: string;
   date: string;
@@ -12,7 +13,8 @@ export type WorkItem = {
 
 export const workItems: WorkItem[] = [
   {
-    title: "GWDC 2026",
+    title: "GWDC",
+    officialTitle: "GWDC 2026",
     type: "Media Partner",
     location: "Seoul",
     date: "Sep 2026",
@@ -21,7 +23,8 @@ export const workItems: WorkItem[] = [
     imageFit: "contain",
   },
   {
-    title: "WalletConnect Side Event",
+    title: "WalletConnect",
+    officialTitle: "WalletConnect Side Event",
     type: "Media Partner",
     location: "Seoul",
     date: "Aug 2026",
@@ -30,7 +33,8 @@ export const workItems: WorkItem[] = [
     imageFit: "contain",
   },
   {
-    title: "WebX Side Event",
+    title: "WebX",
+    officialTitle: "WebX Side Event",
     type: "Media Partner",
     location: "Tokyo",
     date: "Jul 2026",
@@ -39,7 +43,8 @@ export const workItems: WorkItem[] = [
     imageFit: "contain",
   },
   {
-    title: "Southeast Asia Blockchain Week 2026",
+    title: "SEABW",
+    officialTitle: "Southeast Asia Blockchain Week 2026",
     type: "Media Partner",
     location: "Bangkok",
     date: "May 2026",

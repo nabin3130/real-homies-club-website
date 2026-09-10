@@ -217,6 +217,10 @@ const featuredTeams = [
   },
 ];
 
+const featuredConversations = featuredTeams.filter((team) =>
+  ["Pudgy Penguins", "Tether", "WalletConnect"].includes(team.name),
+);
+
 export default function Home() {
   return (
     <main>
@@ -357,62 +361,39 @@ export default function Home() {
           <h2>Teams we&apos;ve spoken with.</h2>
         </div>
 
-        <div
-        className="featured-team-marquee"
-        aria-label="Teams we've spoken with"
-      >
-        <div className="featured-team-track">
-          <div className="featured-team-group">
-            {featuredTeams.map((team) => (
-              <a
-                className="featured-marquee-item"
-                href={team.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                key={team.name}
-              >
-                {team.logo ? (
-                  <img
-                    src={team.logo}
-                    alt={`${team.name} logo`}
-                    className="featured-marquee-logo"
-                  />
-                ) : (
-                  <span>{team.name}</span>
-                )}
-              </a>
-            ))}
-          </div>
+        <div className="featured-conversation-grid">
+          {featuredConversations.map((team) => (
+            <a
+              className="featured-conversation-tile"
+              href={team.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={team.name}
+            >
+              <div className="featured-conversation-visual">
+                <img src={team.logo} alt={`${team.name} logo`} />
+              </div>
 
-    <div className="featured-team-group" aria-hidden="true">
-      {featuredTeams.map((team) => (
-        <a
-          className="featured-marquee-item"
-          href={team.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          tabIndex={-1}
-          key={`${team.name}-duplicate`}
-        >
-          {team.logo ? (
-            <img
-              src={team.logo}
-              alt=""
-              className="featured-marquee-logo"
-            />
-          ) : (
-            <span>{team.name}</span>
-          )}
-        </a>
-      ))}
-    </div>
-  </div>
-</div>
+              <h3>{team.name}</h3>
+            </a>
+          ))}
+        </div>
 
-        <p className="featured-teams-note">
-          Conversations captured at conferences, events, and community
-          gatherings across Web3.
-        </p>
+        <div className="featured-conversation-footer">
+          <p className="featured-teams-note">
+            Conversations captured at conferences, events, and community
+            gatherings across Web3.
+          </p>
+
+          <a
+            className="featured-conversation-cta"
+            href="https://www.tiktok.com/@realhomiesclub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Watch more conversations <span className="cta-arrow">↗</span>
+          </a>
+        </div>
       </section>
 
       <section id="contact" className="contact section-shell">
@@ -425,6 +406,13 @@ export default function Home() {
             Interviews, event coverage, partnerships, and curious ideas
             are all welcome.
           </p>
+
+          <div className="contact-services" aria-label="Available services">
+            <span>Media Partnership</span>
+            <span>Event Coverage</span>
+            <span>Interviews</span>
+            <span>Collaboration</span>
+          </div>
         </div>
 
         <a

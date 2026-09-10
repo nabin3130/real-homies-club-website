@@ -1,6 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { MobileMenu } from "../../components/MobileMenu";
+
+export const metadata: Metadata = {
+  title: "Southeast Asia Blockchain Week 2026",
+  description:
+    "real homies club media partnership and conference coverage at Southeast Asia Blockchain Week 2026 in Bangkok.",
+  alternates: {
+    canonical: "/work/seabw",
+  },
+};
 
 const navigationLinks = [
   { label: "Home", href: "/#home" },
