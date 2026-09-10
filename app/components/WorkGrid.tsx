@@ -20,7 +20,7 @@ function WorkTile({ item }: { item: WorkItem }) {
     </>
   );
 
-  if (item.internalUrl) return <Link className="work-tile" href={item.internalUrl}>{content}</Link>;
+  if (item.internalUrl && item.showDetail) return <Link className="work-tile" href={item.internalUrl}>{content}</Link>;
   if (item.externalUrl) return <a className="work-tile" href={item.externalUrl} target="_blank" rel="noopener noreferrer">{content}</a>;
   return <article className="work-tile">{content}</article>;
 }

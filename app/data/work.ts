@@ -9,6 +9,7 @@ export type WorkItem = {
   imageFit?: "cover" | "contain";
   externalUrl?: string;
   internalUrl?: string;
+  showDetail?: boolean;
 };
 
 export const workItems: WorkItem[] = [
@@ -51,5 +52,6 @@ export const workItems: WorkItem[] = [
     image: "/seabw-2026.jpeg",
     imageAlt: "Southeast Asia Blockchain Week event in Bangkok",
     internalUrl: "/work/seabw",
+    showDetail: false,
   },
 ];
