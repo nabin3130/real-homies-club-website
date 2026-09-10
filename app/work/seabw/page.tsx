@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { MobileMenu } from "../../components/MobileMenu";
 
 const navigationLinks = [
   { label: "Home", href: "/#home" },
@@ -245,24 +246,7 @@ function PageHeader() {
         ))}
       </nav>
 
-      <details className="mobile-menu">
-        <summary aria-label="Open navigation">
-          <span className="menu-line" />
-          <span className="menu-line" />
-          <span className="menu-line" />
-        </summary>
-
-        <nav
-          className="mobile-menu-links"
-          aria-label="Mobile navigation"
-        >
-          {navigationLinks.map(({ label, href }) => (
-            <Link key={label} href={href}>
-              {label}
-            </Link>
-          ))}
-        </nav>
-      </details>
+      <MobileMenu items={navigationLinks} />
     </header>
   );
 }

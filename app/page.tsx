@@ -1,4 +1,12 @@
 import { WorkGrid } from "./components/WorkGrid";
+import { MobileMenu } from "./components/MobileMenu";
+
+const navigationItems = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
+  { label: "Contact", href: "#contact" },
+];
 
 const workItems = [
   {
@@ -234,23 +242,7 @@ export default function Home() {
           <a href="#contact">Contact</a>
         </nav>
 
-        <details className="mobile-menu">
-          <summary aria-label="Open navigation">
-            <span className="menu-line" />
-            <span className="menu-line" />
-            <span className="menu-line" />
-          </summary>
-
-          <nav
-            className="mobile-menu-links"
-            aria-label="Mobile navigation"
-          >
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#work">Work</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </details>
+        <MobileMenu items={navigationItems} />
       </header>
 
       <section id="home" className="hero section-shell">
