@@ -2066,8 +2066,8 @@ html {
 
 .featured-conversation-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px;
 }
 
 .featured-conversation-tile {
@@ -2076,12 +2076,12 @@ html {
 }
 
 .featured-conversation-visual {
-  aspect-ratio: 4 / 5;
+  height: clamp(120px, 10vw, 148px);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: clamp(32px, 5vw, 64px);
+  padding: clamp(18px, 2.4vw, 30px);
   background: rgba(255, 250, 241, .68);
   border: var(--border-editorial);
   border-radius: var(--radius-image);
@@ -2096,9 +2096,9 @@ html {
 }
 
 .featured-conversation-tile h3 {
-  margin: 18px 0 0;
-  font-size: clamp(24px, 2.2vw, 30px);
-  line-height: 1.08;
+  margin: 12px 0 0;
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.15;
   letter-spacing: -.035em;
 }
 
@@ -2220,7 +2220,8 @@ html {
   .work-card a { align-self: flex-start; }
 
   .featured-conversation-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
   }
 
   .contact h2 { white-space: normal; }
@@ -2229,6 +2230,10 @@ html {
 @media (min-width: 901px) and (max-width: 1100px) {
   .work-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featured-conversation-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -2344,17 +2349,18 @@ html {
   }
 
   .featured-conversation-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 14px;
   }
 
   .featured-conversation-visual {
-    padding: clamp(40px, 16vw, 68px);
+    height: clamp(104px, 29vw, 122px);
+    padding: clamp(16px, 5vw, 22px);
   }
 
   .featured-conversation-tile h3 {
-    margin-top: 16px;
-    font-size: 26px;
+    margin-top: 10px;
+    font-size: 16px;
   }
 
   .featured-conversation-footer {
