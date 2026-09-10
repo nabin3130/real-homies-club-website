@@ -2102,8 +2102,23 @@ html {
   letter-spacing: -.035em;
 }
 
-.featured-conversation-tile:hover .featured-conversation-visual img {
+.featured-conversation-tile--clickable {
+  cursor: pointer;
+}
+
+.featured-conversation-tile--clickable:hover .featured-conversation-visual {
+  background: rgba(255, 250, 241, .92);
+  border-color: rgba(23, 19, 29, .34);
+}
+
+.featured-conversation-tile--clickable:hover .featured-conversation-visual img {
   transform: scale(1.035);
+}
+
+.featured-conversation-tile--clickable:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 5px;
+  border-radius: var(--radius-image);
 }
 
 .featured-conversation-footer {

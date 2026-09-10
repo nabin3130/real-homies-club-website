@@ -61,7 +61,7 @@ const featuredTeams = [
     logo: "/logos/bonanzalab.png",
   },
   {
-    name: "Box.fun",
+    name: "box.fun",
     href: "https://box.fun/",
     logo: "/logos/boxfun.png",
   },
@@ -111,7 +111,7 @@ const featuredTeams = [
     logo: "/logos/frax.png",
   },
   {
-    name: "Genzio Media",
+    name: "Genzio",
     href: "https://www.genziomedia.com/",
     logo: "/logos/genzio.png",
   },
@@ -211,15 +211,36 @@ const featuredTeams = [
     logo: "/logos/wallet.svg",
   },
   {
-    name: "Web3 Events",
+    name: "Web3Event",
     href: "https://linktr.ee/web3.events",
     logo: "/logos/web3.png",
   },
 ];
 
-const featuredConversations = featuredTeams.filter((team) =>
-  ["Pudgy Penguins", "Tether", "WalletConnect"].includes(team.name),
-);
+const interviewUrls: Record<string, string> = {
+  Tether: "https://www.tiktok.com/@realhomiesclub/video/7661604952162290974",
+  "Pudgy Penguins": "https://www.tiktok.com/@realhomiesclub/video/7657429938210884895",
+  Dash: "https://www.tiktok.com/@realhomiesclub/video/7673230728871562527",
+  "Collectible Con": "https://www.tiktok.com/@realhomiesclub/video/7676303961720130846",
+  "Superteam Thailand": "https://www.tiktok.com/@realhomiesclub/video/7674789121667239198",
+  "Nansen AI": "https://www.tiktok.com/@realhomiesclub/video/7659635412842974495",
+  Genzio: "https://www.tiktok.com/@realhomiesclub/video/7645847266627947806",
+  "Bonanza Lab": "https://www.tiktok.com/@realhomiesclub/video/7639172478513712415",
+  Lagrange: "https://www.tiktok.com/@realhomiesclub/video/7638527415555198238",
+  "P2P.org": "https://www.tiktok.com/@realhomiesclub/video/7637386865410182430",
+  BitSaving: "https://www.tiktok.com/@realhomiesclub/video/7634056564877380895",
+  Web3Event: "https://www.tiktok.com/@realhomiesclub/video/7633647235623816478",
+  RedStone: "https://www.tiktok.com/@realhomiesclub/video/7607117801597226270",
+  DogeOS: "https://www.tiktok.com/@realhomiesclub/video/7607831708485815583",
+  Chinsanity: "https://www.tiktok.com/@realhomiesclub/video/7603776586160065822",
+  Paybis: "https://www.tiktok.com/@realhomiesclub/video/7600769327171718430",
+  "box.fun": "https://www.tiktok.com/@realhomiesclub/video/7598757230741081375",
+};
+
+const featuredConversations = featuredTeams.map((team) => ({
+  ...team,
+  interviewUrl: interviewUrls[team.name] ?? null,
+}));
 
 export default function Home() {
   return (
@@ -361,21 +382,34 @@ export default function Home() {
         </div>
 
         <div className="featured-conversation-grid">
-          {featuredConversations.map((team) => (
-            <a
-              className="featured-conversation-tile"
-              href={team.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={team.name}
-            >
-              <div className="featured-conversation-visual">
-                <img src={team.logo} alt={`${team.name} logo`} />
-              </div>
+          {featuredConversations.map((team) => {
+            const tileContent = (
+              <>
+                <div className="featured-conversation-visual">
+                  <img src={team.logo} alt={`${team.name} logo`} />
+                </div>
 
-              <h3>{team.name}</h3>
-            </a>
-          ))}
+                <h3>{team.name}</h3>
+              </>
+            );
+
+            return team.interviewUrl ? (
+              <a
+                className="featured-conversation-tile featured-conversation-tile--clickable"
+                href={team.interviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Watch the real homies club interview with ${team.name} on TikTok`}
+                key={team.name}
+              >
+                {tileContent}
+              </a>
+            ) : (
+              <article className="featured-conversation-tile" key={team.name}>
+                {tileContent}
+              </article>
+            );
+          })}
         </div>
 
         <div className="featured-conversation-footer">
@@ -390,7 +424,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Watch more conversations <span className="cta-arrow">↗</span>
+            Watch more conversations
           </a>
         </div>
       </section>
