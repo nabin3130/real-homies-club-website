@@ -285,47 +285,49 @@ export default function Home() {
         <MobileMenu items={navigationItems} />
       </header>
 
-      <section id="home" className="hero section-shell">
-        <div className="hero-copy">
-          <p className="eyebrow">MEDIA &amp; BEYOND</p>
+      <div className="hero-composition">
+        <section id="home" className="hero section-shell">
+          <div className="hero-copy">
+            <p className="eyebrow">MEDIA &amp; BEYOND</p>
 
-          <h1>
-            <span className="headline-line">Behind every idea.</span>
-            <span className="headline-line">There&apos;s a person.</span>
-          </h1>
+            <h1>
+              <span className="headline-line">Behind every idea.</span>
+              <span className="headline-line">There&apos;s a person.</span>
+            </h1>
 
-          <p className="hero-description">
-            An independent media and event studio built around people,
-            conversations, and ideas.
-          </p>
-        </div>
-
-        <HeroVideo />
-      </section>
-
-      <section className="social-proof" aria-label="Teams we've spoken with">
-        <div className="featured-team-marquee social-proof-marquee">
-          <div className="featured-team-track">
-            {[0, 1].map((groupIndex) => (
-              <div
-                className="featured-team-group"
-                aria-hidden={groupIndex === 1}
-                key={groupIndex}
-              >
-                {socialProofTeams.map((team) => (
-                  <div className="featured-marquee-item" key={team.name}>
-                    <img
-                      className="featured-marquee-logo"
-                      src={team.logo}
-                      alt={groupIndex === 0 ? `${team.name} logo` : ""}
-                    />
-                  </div>
-                ))}
-              </div>
-            ))}
+            <p className="hero-description">
+              An independent media and event studio built around people,
+              conversations, and ideas.
+            </p>
           </div>
-        </div>
-      </section>
+
+          <HeroVideo />
+        </section>
+
+        <section className="social-proof" aria-label="Teams we've spoken with">
+          <div className="featured-team-marquee social-proof-marquee">
+            <div className="featured-team-track">
+              {[0, 1].map((groupIndex) => (
+                <div
+                  className="featured-team-group"
+                  aria-hidden={groupIndex === 1}
+                  key={groupIndex}
+                >
+                  {socialProofTeams.map((team) => (
+                    <div className="featured-marquee-item" key={team.name}>
+                      <img
+                        className="featured-marquee-logo"
+                        src={team.logo}
+                        alt={groupIndex === 0 ? `${team.name} logo` : ""}
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
 
       <section id="what-we-do" className="work section-shell">
         <div className="work-heading">
