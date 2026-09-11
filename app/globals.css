@@ -2233,9 +2233,13 @@ html {
 .social-proof-marquee {
   width: 100%;
   margin-left: 0;
-  border-top: var(--border-editorial);
+  border-top: 0;
   border-bottom: 0;
   box-shadow: none;
+}
+
+.hero-composition + .work {
+  border-top: 0;
 }
 
 .social-proof .featured-team-track {
@@ -2253,12 +2257,12 @@ html {
 
 .social-proof .featured-marquee-item {
   width: clamp(112px, 10vw, 148px);
-  height: 64px;
+  height: 80px;
 }
 
 .social-proof .featured-marquee-logo {
-  max-width: 130px;
-  max-height: 38px;
+  max-width: 138px;
+  max-height: 42px;
   transition: none;
 }
 
@@ -2299,12 +2303,12 @@ html {
 
   .social-proof .featured-marquee-item {
     width: 110px;
-    height: 60px;
+    height: 74px;
   }
 
   .social-proof .featured-marquee-logo {
-    max-width: 105px;
-    max-height: 34px;
+    max-width: 108px;
+    max-height: 38px;
   }
 }
 
