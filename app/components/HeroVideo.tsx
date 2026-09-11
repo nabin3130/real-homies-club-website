@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export function AboutVideo() {
+export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -30,10 +30,10 @@ export function AboutVideo() {
   }, []);
 
   return (
-    <div className="about-video-wrap" aria-hidden="true">
+    <div className="hero-video-wrap" aria-hidden="true">
       <video
         ref={videoRef}
-        className="about-video"
+        className="hero-video"
         autoPlay
         muted
         loop

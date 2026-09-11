@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 };
 
 const navigationLinks = [
-  { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
+  { label: "What We Do", href: "/#what-we-do" },
   { label: "Work", href: "/#work" },
+  { label: "Conversations", href: "/#conversations" },
   { label: "Contact", href: "/#contact" },
 ];
 

@@ -1,11 +1,11 @@
-import { AboutVideo } from "./components/AboutVideo";
+import { HeroVideo } from "./components/HeroVideo";
 import { WorkGrid } from "./components/WorkGrid";
 import { MobileMenu } from "./components/MobileMenu";
 
 const navigationItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
+  { label: "What We Do", href: "#what-we-do" },
   { label: "Work", href: "#work" },
+  { label: "Conversations", href: "#conversations" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -262,9 +262,9 @@ export default function Home() {
         </a>
 
         <nav className="nav-links" aria-label="Main navigation">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
+          <a href="#what-we-do">What We Do</a>
           <a href="#work">Work</a>
+          <a href="#conversations">Conversations</a>
           <a href="#contact">Contact</a>
         </nav>
 
@@ -281,55 +281,12 @@ export default function Home() {
           </h1>
 
           <p className="hero-description">
-            Through conversations, interviews, and shared experiences,
-            <br />
-            we uncover the people behind the ideas.
+            real homies club is an independent media and event studio built
+            around conversations, people, and the ideas they bring to life.
           </p>
         </div>
 
-        <div className="hero-art" aria-hidden="true">
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-
-          <div className="hero-card card-one">
-            <span>BEHIND THE IDEA</span>
-            <strong>Meet the people.</strong>
-          </div>
-
-          <div className="hero-card card-two">
-            <span className="dot" />
-            <span>REC</span>
-          </div>
-
-          <div className="smile">:)</div>
-        </div>
-      </section>
-
-      <section className="about section-shell">
-        <div className="about-grid">
-          <div id="about" className="about-content">
-            <p className="section-label">ABOUT</p>
-
-            <h2 className="about-heading">
-              We tell the stories behind the ideas.
-            </h2>
-
-            <div className="about-copy">
-              <p>
-                real homies club is an independent media and event studio built
-                around a simple idea: people connect with people before they
-                connect with ideas.
-              </p>
-
-              <p>
-                Through interviews and shared experiences, we uncover the
-                people behind the stories.
-              </p>
-            </div>
-          </div>
-
-          <AboutVideo />
-        </div>
+        <HeroVideo />
       </section>
 
       <section id="what-we-do" className="work section-shell">
@@ -374,7 +331,7 @@ export default function Home() {
       </section>
 
       <section className="featured-teams section-shell">
-        <div className="featured-teams-heading">
+        <div id="conversations" className="featured-teams-heading">
           <p className="section-label">FEATURED CONVERSATIONS</p>
 
           <h2>Teams we&apos;ve spoken with.</h2>
