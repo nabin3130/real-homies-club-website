@@ -243,6 +243,20 @@ const featuredConversations = featuredTeams.map((team) => ({
   interviewUrl: interviewUrls[team.name] ?? null,
 }));
 
+const socialProofNames = [
+  "Tether",
+  "Pudgy Penguins",
+  "Dash",
+  "Nansen AI",
+  "P2P.org",
+  "Paybis",
+  "RedStone",
+];
+
+const socialProofTeams = socialProofNames
+  .map((name) => featuredTeams.find((team) => team.name === name))
+  .filter((team): team is (typeof featuredTeams)[number] => Boolean(team));
+
 export default function Home() {
   return (
     <main>
@@ -281,12 +295,40 @@ export default function Home() {
           </h1>
 
           <p className="hero-description">
-            real homies club is an independent media and event studio built
-            around conversations, people, and the ideas they bring to life.
+            An independent media and event studio built around people,
+            conversations, and ideas.
           </p>
         </div>
 
         <HeroVideo />
+      </section>
+
+      <section className="social-proof" aria-label="Teams we've spoken with">
+        <div className="social-proof-label section-shell">
+          Teams we&apos;ve spoken with
+        </div>
+
+        <div className="featured-team-marquee social-proof-marquee">
+          <div className="featured-team-track">
+            {[0, 1].map((groupIndex) => (
+              <div
+                className="featured-team-group"
+                aria-hidden={groupIndex === 1}
+                key={groupIndex}
+              >
+                {socialProofTeams.map((team) => (
+                  <div className="featured-marquee-item" key={team.name}>
+                    <img
+                      className="featured-marquee-logo"
+                      src={team.logo}
+                      alt={groupIndex === 0 ? `${team.name} logo` : ""}
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section id="what-we-do" className="work section-shell">

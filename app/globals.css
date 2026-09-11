@@ -223,9 +223,9 @@ main {
   padding: 90px 0 100px;
 
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.7fr);
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.75fr);
   align-items: center;
-  gap: 70px;
+  gap: clamp(36px, 5vw, 64px);
 }
 
 .hero-copy {
@@ -263,7 +263,7 @@ main {
 
 .hero-video-wrap {
   position: relative;
-  width: min(100%, 340px);
+  width: min(100%, 380px);
   aspect-ratio: 9 / 16;
   overflow: hidden;
   justify-self: end;
@@ -2223,4 +2223,122 @@ html {
   }
 
   .footer { font-size: 14px; }
+}
+
+/* Compact social proof marquee below the Hero. */
+.social-proof {
+  padding: 0 0 12px;
+}
+
+.social-proof-label {
+  margin-bottom: 14px;
+  color: rgba(23, 19, 29, 0.68);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.social-proof-marquee {
+  width: 100%;
+  margin-left: 0;
+  border-top: var(--border-editorial);
+  border-bottom: var(--border-editorial);
+  box-shadow: none;
+}
+
+.social-proof .featured-team-track {
+  animation-duration: 52s;
+}
+
+.social-proof-marquee:hover .featured-team-track {
+  animation-play-state: running;
+}
+
+.social-proof .featured-team-group {
+  gap: clamp(48px, 5vw, 72px);
+  padding-right: clamp(48px, 5vw, 72px);
+}
+
+.social-proof .featured-marquee-item {
+  width: clamp(112px, 10vw, 148px);
+  height: 76px;
+}
+
+.social-proof .featured-marquee-logo {
+  max-width: 130px;
+  max-height: 38px;
+  transition: none;
+}
+
+.social-proof .featured-marquee-item:hover .featured-marquee-logo {
+  transform: none;
+}
+
+@media (min-width: 901px) {
+  .hero {
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding-bottom: 48px;
+  }
+
+  .social-proof .featured-team-track {
+    animation-duration: 48s;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-video-wrap {
+    width: min(100%, 350px);
+  }
+
+  .social-proof {
+    padding-bottom: 8px;
+  }
+
+  .social-proof-label {
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+
+  .social-proof .featured-team-group {
+    gap: 36px;
+    padding-right: 36px;
+  }
+
+  .social-proof .featured-marquee-item {
+    width: 110px;
+    height: 68px;
+  }
+
+  .social-proof .featured-marquee-logo {
+    max-width: 105px;
+    max-height: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-proof-marquee {
+    overflow: visible;
+  }
+
+  .social-proof .featured-team-track {
+    width: 100%;
+    animation: none !important;
+    transform: none;
+  }
+
+  .social-proof .featured-team-group:first-child {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 8px 20px;
+  }
+
+  .social-proof .featured-team-group[aria-hidden="true"] {
+    display: none;
+  }
 }
