@@ -304,10 +304,6 @@ export default function Home() {
       </section>
 
       <section className="social-proof" aria-label="Teams we've spoken with">
-        <div className="social-proof-label section-shell">
-          Teams we&apos;ve spoken with
-        </div>
-
         <div className="featured-team-marquee social-proof-marquee">
           <div className="featured-team-track">
             {[0, 1].map((groupIndex) => (

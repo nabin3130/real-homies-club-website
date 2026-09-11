@@ -2227,22 +2227,14 @@ html {
 
 /* Compact social proof marquee below the Hero. */
 .social-proof {
-  padding: 0 0 12px;
-}
-
-.social-proof-label {
-  margin-bottom: 14px;
-  color: rgba(23, 19, 29, 0.68);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  padding: 0;
 }
 
 .social-proof-marquee {
   width: 100%;
   margin-left: 0;
   border-top: var(--border-editorial);
-  border-bottom: var(--border-editorial);
+  border-bottom: 0;
   box-shadow: none;
 }
 
@@ -2261,7 +2253,7 @@ html {
 
 .social-proof .featured-marquee-item {
   width: clamp(112px, 10vw, 148px);
-  height: 76px;
+  height: 64px;
 }
 
 .social-proof .featured-marquee-logo {
@@ -2296,12 +2288,7 @@ html {
   }
 
   .social-proof {
-    padding-bottom: 8px;
-  }
-
-  .social-proof-label {
-    margin-bottom: 12px;
-    font-size: 12px;
+    padding-bottom: 0;
   }
 
   .social-proof .featured-team-group {
@@ -2311,7 +2298,7 @@ html {
 
   .social-proof .featured-marquee-item {
     width: 110px;
-    height: 68px;
+    height: 60px;
   }
 
   .social-proof .featured-marquee-logo {
@@ -2321,10 +2308,6 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .social-proof-marquee {
-    overflow: visible;
-  }
-
   .social-proof .featured-team-track {
     width: 100%;
     animation: none !important;
