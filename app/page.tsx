@@ -315,7 +315,10 @@ export default function Home() {
       <div className="hero-composition">
         <section id="home" className="hero section-shell">
           <div className="hero-copy">
-            <p className="eyebrow">MEDIA &amp; BEYOND</p>
+            <p className="eyebrow section-label-signature">
+              MEDIA &amp; BEYOND
+              <BrandSparkle />
+            </p>
 
             <h1>
               <span className="headline-line">Behind every idea.</span>
@@ -394,7 +397,10 @@ export default function Home() {
 
       <section id="selected-work" className="selected-work section-shell">
         <div id="work" className="selected-work-heading">
-          <p className="section-label">WORK</p>
+          <p className="section-label section-label-signature">
+            WORK
+            <BrandSparkle />
+          </p>
 
           <h2>
             On the ground, where ideas meet <span className="work-people">people.<BrushUnderline /></span>
@@ -406,7 +412,10 @@ export default function Home() {
 
       <section className="featured-teams section-shell">
         <div id="conversations" className="featured-teams-heading">
-          <p className="section-label">FEATURED CONVERSATIONS</p>
+          <p className="section-label section-label-signature">
+            FEATURED CONVERSATIONS
+            <BrandSparkle />
+          </p>
 
           <h2>Teams we&apos;ve spoken with.</h2>
         </div>
@@ -461,7 +470,10 @@ export default function Home() {
 
       <section id="contact" className="contact section-shell">
         <div>
-          <p className="section-label light">CONTACT</p>
+          <p className="section-label light section-label-signature">
+            CONTACT
+            <BrandSparkle />
+          </p>
 
           <h2>Have a story worth telling?</h2>
 
@@ -487,10 +499,7 @@ export default function Home() {
       </section>
 
       <footer className="footer section-shell">
-        <span className="footer-signature">
-          © 2026 real homies club
-          <BrandSparkle className="brand-sparkle--footer" />
-        </span>
+        <span>© 2026 real homies club</span>
 
         <div className="footer-social">
           <a

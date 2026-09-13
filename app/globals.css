@@ -1631,8 +1631,8 @@ main {
   z-index: -1;
   display: block;
   width: 98%;
-  height: 0.19em;
-  min-height: 8px;
+  height: 0.285em;
+  min-height: 12px;
   overflow: visible;
   pointer-events: none;
   color: var(--brand-orange);
@@ -1646,15 +1646,16 @@ main {
   left: 8%;
   bottom: -0.18em;
   width: 86%;
-  height: 0.15em;
-  min-height: 6px;
+  height: 0.225em;
+  min-height: 9px;
   opacity: 0.9;
 }
 
-.section-label-signature,
-.footer-signature {
+.section-label-signature {
   display: inline-flex;
   align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .section-label-signature {
@@ -1673,21 +1674,17 @@ main {
   transform: rotate(-7deg);
 }
 
-.footer-signature {
-  gap: 7px;
-}
-
-.brand-sparkle--footer {
-  width: 12px;
-  height: 12px;
-  transform: rotate(8deg);
+.contact .brand-sparkle {
+  paint-order: stroke fill;
+  stroke: rgba(255, 250, 241, 0.72);
+  stroke-width: 1.4px;
 }
 
 @media (max-width: 560px) {
   .hero-person .brush-underline {
     bottom: -0.1em;
-    height: 0.18em;
-    min-height: 7px;
+    height: 0.27em;
+    min-height: 11px;
   }
 
   .work-people .brush-underline {
@@ -1699,10 +1696,6 @@ main {
     height: 13px;
   }
 
-  .brand-sparkle--footer {
-    width: 11px;
-    height: 11px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
