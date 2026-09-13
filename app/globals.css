@@ -2233,6 +2233,8 @@ html {
 .social-proof-marquee {
   width: 100%;
   margin-left: 0;
+  padding-block: 10px;
+  overflow: hidden;
   border-top: 0;
   border-bottom: 0;
   box-shadow: none;
@@ -2261,8 +2263,10 @@ html {
 }
 
 .social-proof .featured-marquee-logo {
-  max-width: 138px;
-  max-height: 42px;
+  width: auto;
+  max-width: 144px;
+  max-height: 46px;
+  object-fit: contain;
   transition: none;
 }
 
@@ -2285,11 +2289,19 @@ html {
   .social-proof .featured-team-track {
     animation-duration: 48s;
   }
+
+  .hero-video-wrap {
+    width: min(78%, 340px);
+    margin-inline: auto;
+    justify-self: center;
+  }
 }
 
 @media (max-width: 560px) {
   .hero-video-wrap {
-    width: min(100%, 350px);
+    width: min(78%, 300px);
+    margin-inline: auto;
+    justify-self: center;
   }
 
   .social-proof {
@@ -2307,8 +2319,8 @@ html {
   }
 
   .social-proof .featured-marquee-logo {
-    max-width: 108px;
-    max-height: 38px;
+    max-width: 110px;
+    max-height: 42px;
   }
 }
 

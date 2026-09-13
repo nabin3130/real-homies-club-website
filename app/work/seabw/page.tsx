@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/work/seabw",
   },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 const navigationLinks = [

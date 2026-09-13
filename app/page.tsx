@@ -244,13 +244,13 @@ const featuredConversations = featuredTeams.map((team) => ({
 }));
 
 const socialProofNames = [
-  "Tether",
-  "Pudgy Penguins",
-  "Dash",
   "Nansen AI",
   "P2P.org",
   "Paybis",
   "RedStone",
+  "Tether",
+  "Pudgy Penguins",
+  "Dash",
 ];
 
 const socialProofTeams = socialProofNames
@@ -304,7 +304,7 @@ export default function Home() {
           <HeroVideo />
         </section>
 
-        <section className="social-proof" aria-label="Teams we've spoken with">
+        <aside className="social-proof" aria-label="Teams we've spoken with">
           <div className="featured-team-marquee social-proof-marquee">
             <div className="featured-team-track">
               {[0, 1].map((groupIndex) => (
@@ -326,7 +326,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </aside>
       </div>
 
       <section id="what-we-do" className="work section-shell">
