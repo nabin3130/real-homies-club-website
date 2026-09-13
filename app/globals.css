@@ -1616,6 +1616,103 @@ main {
   }
 }
 
+/* Small hand-drawn signatures from the real homies club visual language. */
+.hero-person,
+.work-people {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+}
+
+.brush-underline {
+  position: absolute;
+  left: 2%;
+  bottom: -0.12em;
+  z-index: -1;
+  display: block;
+  width: 98%;
+  height: 0.19em;
+  min-height: 8px;
+  overflow: visible;
+  pointer-events: none;
+  color: var(--brand-orange);
+}
+
+.brush-underline path {
+  fill: currentColor;
+}
+
+.work-people .brush-underline {
+  left: 8%;
+  bottom: -0.18em;
+  width: 86%;
+  height: 0.15em;
+  min-height: 6px;
+  opacity: 0.9;
+}
+
+.section-label-signature,
+.footer-signature {
+  display: inline-flex;
+  align-items: center;
+}
+
+.section-label-signature {
+  gap: 8px;
+  width: fit-content;
+}
+
+.brand-sparkle {
+  display: block;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  overflow: visible;
+  fill: var(--brand-orange);
+  pointer-events: none;
+  transform: rotate(-7deg);
+}
+
+.footer-signature {
+  gap: 7px;
+}
+
+.brand-sparkle--footer {
+  width: 12px;
+  height: 12px;
+  transform: rotate(8deg);
+}
+
+@media (max-width: 560px) {
+  .hero-person .brush-underline {
+    bottom: -0.1em;
+    height: 0.18em;
+    min-height: 7px;
+  }
+
+  .work-people .brush-underline {
+    bottom: -0.14em;
+  }
+
+  .brand-sparkle {
+    width: 13px;
+    height: 13px;
+  }
+
+  .brand-sparkle--footer {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brush-underline,
+  .brand-sparkle {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 /* Work portfolio grid */
 .work-tile-grid {
   display: grid;

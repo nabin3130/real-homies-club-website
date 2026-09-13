@@ -2,6 +2,33 @@ import { HeroVideo } from "./components/HeroVideo";
 import { WorkGrid } from "./components/WorkGrid";
 import { MobileMenu } from "./components/MobileMenu";
 
+function BrandSparkle({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      className={`brand-sparkle ${className}`}
+      viewBox="0 0 32 32"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M16 1.5c.8 8.9 5.6 13.7 14.5 14.5C21.6 16.8 16.8 21.6 16 30.5 15.2 21.6 10.4 16.8 1.5 16 10.4 15.2 15.2 10.4 16 1.5Z" />
+    </svg>
+  );
+}
+
+function BrushUnderline({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      className={`brush-underline ${className}`}
+      viewBox="0 0 180 18"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M3 11.8C33 7.1 64 8.7 91 7.2c28-1.5 57-3.1 86-1.2-28 2.6-58 3.1-87 5.3-29 2.2-58 3.7-87 2.1Z" />
+    </svg>
+  );
+}
+
 const navigationItems = [
   { label: "What We Do", href: "#what-we-do" },
   { label: "Work", href: "#work" },
@@ -292,7 +319,9 @@ export default function Home() {
 
             <h1>
               <span className="headline-line">Behind every idea.</span>
-              <span className="headline-line">There&apos;s a person.</span>
+              <span className="headline-line">
+                There&apos;s a <span className="hero-person">person.<BrushUnderline /></span>
+              </span>
             </h1>
 
             <p className="hero-description">
@@ -331,7 +360,10 @@ export default function Home() {
 
       <section id="what-we-do" className="work section-shell">
         <div className="work-heading">
-          <p className="section-label">WHAT WE DO</p>
+          <p className="section-label section-label-signature">
+            WHAT WE DO
+            <BrandSparkle />
+          </p>
           <h2>What we do</h2>
         </div>
 
@@ -364,7 +396,9 @@ export default function Home() {
         <div id="work" className="selected-work-heading">
           <p className="section-label">WORK</p>
 
-          <h2>On the ground, where ideas meet people.</h2>
+          <h2>
+            On the ground, where ideas meet <span className="work-people">people.<BrushUnderline /></span>
+          </h2>
         </div>
 
         <WorkGrid />
@@ -453,7 +487,10 @@ export default function Home() {
       </section>
 
       <footer className="footer section-shell">
-        <span>© 2026 real homies club</span>
+        <span className="footer-signature">
+          © 2026 real homies club
+          <BrandSparkle className="brand-sparkle--footer" />
+        </span>
 
         <div className="footer-social">
           <a
