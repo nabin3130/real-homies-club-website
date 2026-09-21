@@ -28,7 +28,7 @@ Community Branding → Social Hub → Content Discovery → Collaboration
 
 ## Live Demo
 
-https://real-homies-club.vercel.app/
+https://rea1homies.com/
 
 ## Why I built this
 

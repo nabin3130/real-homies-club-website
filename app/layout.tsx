@@ -4,10 +4,10 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 const siteName = "real homies club";
-const siteUrl = "https://real-homies-club.vercel.app";
-const siteTitle = "real homies club | Web3 Media & Events";
+const siteUrl = "https://rea1homies.com";
+const siteTitle = "real homies club | people behind tech";
 const siteDescription =
-  "real homies club is an independent Web3 media and event studio covering conferences, communities, founders, builders, and ecosystem teams through interviews and social content.";
+  "Real conversations with the people building what's next.";
 const organizationId = `${siteUrl}/#organization`;
 const websiteId = `${siteUrl}/#website`;
 
@@ -62,10 +62,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/real-homies-logo.png",
-        width: 1082,
-        height: 1082,
-        alt: "real homies club logo",
+        url: "/social-preview.png",
+        width: 1734,
+        height: 907,
+        alt: "real homies club — people behind web3",
       },
     ],
   },
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/real-homies-logo.png"],
+    images: ["/social-preview.png"],
   },
 
   robots: {

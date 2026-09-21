@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       ...(isProduction ? { allow: "/" } : { disallow: "/" }),
     },
-    sitemap: "https://real-homies-club.vercel.app/sitemap.xml",
+    sitemap: "https://rea1homies.com/sitemap.xml",
   };
 }
