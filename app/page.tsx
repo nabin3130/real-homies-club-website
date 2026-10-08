@@ -1,6 +1,6 @@
 import { HeroVideo } from "./components/HeroVideo";
 import { WorkGrid } from "./components/WorkGrid";
-import { MobileMenu } from "./components/MobileMenu";
+import { SiteHeader } from "./components/SiteHeader";
 
 function BrandSparkle({ className = "" }: { className?: string }) {
   return (
@@ -28,13 +28,6 @@ function BrushUnderline({ className = "" }: { className?: string }) {
     </svg>
   );
 }
-
-const navigationItems = [
-  { label: "What We Do", href: "#what-we-do" },
-  { label: "Work", href: "#work" },
-  { label: "Conversations", href: "#conversations" },
-  { label: "Contact", href: "#contact" },
-];
 
 const workItems = [
   {
@@ -287,30 +280,7 @@ const socialProofTeams = socialProofNames
 export default function Home() {
   return (
     <main>
-      <header className="nav-wrap">
-        <a
-          href="#home"
-          className="brand"
-          aria-label="real homies club home"
-        >
-          <img
-            src="/real-homies-logo.png"
-            alt=""
-            className="brand-mark"
-          />
-
-          <span>real homies club</span>
-        </a>
-
-        <nav className="nav-links" aria-label="Main navigation">
-          <a href="#what-we-do">What We Do</a>
-          <a href="#work">Work</a>
-          <a href="#conversations">Conversations</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <MobileMenu items={navigationItems} />
-      </header>
+      <SiteHeader home />
 
       <div className="hero-composition">
         <section id="home" className="hero section-shell">

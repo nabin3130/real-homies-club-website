@@ -1,0 +1,42 @@
+{
+  "source": "Untitled presentation.pptx",
+  "source_sha256": "931c039ea33cb50c93331199e6d1161297db7d143863fb17b50b0c913506042d",
+  "extraction": "Embedded JPEG decoded to PNG at native resolution; no crop, redraw or slide text overlay.",
+  "blank_slides": [
+    1
+  ],
+  "images": [
+    {
+      "slide": 2,
+      "screen": "/Home",
+      "source": "ppt/media/image1.jpg",
+      "png": "wireframes/02-home.png",
+      "width": 2048,
+      "height": 1253
+    },
+    {
+      "slide": 3,
+      "screen": "/PlaceYourLogo",
+      "source": "ppt/media/image4.jpg",
+      "png": "wireframes/03-place-your-logo.png",
+      "width": 2048,
+      "height": 998
+    },
+    {
+      "slide": 4,
+      "screen": "Payment Shared Panel",
+      "source": "ppt/media/image3.jpg",
+      "png": "wireframes/04-payment-panel.png",
+      "width": 2048,
+      "height": 1084
+    },
+    {
+      "slide": 5,
+      "screen": "/AfterConfirmation",
+      "source": "ppt/media/image2.jpg",
+      "png": "wireframes/05-after-confirmation.png",
+      "width": 2048,
+      "height": 995
+    }
+  ]
+}
