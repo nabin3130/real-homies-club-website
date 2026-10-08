@@ -38,7 +38,7 @@ const faqs = [
 const productSummary = "One logo in one video, cross-posted to TikTok, YouTube, and Instagram.";
 const formats = ["image/png", "image/jpeg", "image/svg+xml"];
 
-export function LogoPlacement() {
+export function LogoPlacement({ confirmationPreviewEnabled = false }: { confirmationPreviewEnabled?: boolean }) {
   const [email, setEmail] = useState("");
   const [logo, setLogo] = useState<File | null>(null);
   const [src, setSrc] = useState<string | null>(null);
@@ -162,6 +162,12 @@ export function LogoPlacement() {
                     <p className="logo-note">Demo only. No live payments. The address is a placeholder. Do not send funds. No transaction is being verified.</p>
                   </>
                 ) : <p className="logo-note">{method} checkout is not connected. No payment will be collected.</p>}
+                {confirmationPreviewEnabled && (
+                  <div>
+                    <a className="button" href="/AfterConfirmation?preview=1">Preview Confirmation Page</a>
+                    <p className="logo-note">Preview only. No payment is verified, no record is created, and no email is sent.</p>
+                  </div>
+                )}
               </>
             )}
           </aside>

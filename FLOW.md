@@ -123,3 +123,10 @@ flowchart TD
 - U12: 향후 거래 진행 중 입력 변경·잠금·Q&A 재진입 정책.
 
 Phase 1 데모 동작 검증과 향후 실제 연동 검증은 구분한다. 미정·미연동 항목을 통과했다고 보고하지 않는다. 전체 수용 조건은 SPEC §8을 따른다. UI는 별도 요청 시 feature 브랜치에서만 구현하며 main 병합·production 배포는 하지 않는다.
+
+## Development / Vercel Preview confirmation demo
+
+- Payment 패널에 `Preview Confirmation Page` 링크를 개발 환경 및 Vercel Preview에서만 표시한다. `Continue to Payment`는 계속 Payment 패널을 연다.
+- `/AfterConfirmation?preview=1`은 서버 환경 검사를 통과한 경우에만 `Preview / Demo Mode` 화면을 표시한다. production에서는 같은 URL도 기존 접근 차단 화면을 표시한다.
+- 이 별도 데모 경로는 결제 확인이나 실제 완료 승인이 아니다. 결제 기록 생성, 메일 발송, 로고 배정, 결제 활성화를 수행하지 않는다. 날짜·시간을 만들지 않는다.
+- 일반 `/AfterConfirmation` 접근과 새로고침의 기존 verified-payment 보호 규칙을 유지한다. 실제 서버 결제 확인 연동은 아직 구현되지 않았으며 계속 fail closed 상태다.

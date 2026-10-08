@@ -1,6 +1,6 @@
 # SPEC — Place Your Logo / Phase 1
 
-상태: 확정된 Phase 1 변경 명세. 이번 작업은 Markdown만 수정하며 UI 구현·실제 결제·메일 연동 검증은 포함하지 않는다.
+상태: Phase 1 결제 UI 데모 및 개발/Vercel Preview 전용 확인 페이지 미리보기 명세. 실제 결제·메일 연동은 활성화하지 않는다.
 기준일: 2026-10-08
 저장소: `nabin3130/real-homies-club-website`
 대상 브랜치: `feature/place-your-logo`
@@ -123,7 +123,7 @@ FAQ 4는 실제 결제 활성화 이후의 서비스 규칙이다. Phase 1 데�
 - Preview, 입력 폼, Payment/Q&A 패널을 표시하지 않는다. 불필요한 버튼·카드·애니메이션을 추가하지 않는다.
 - 유효한 결제 완료 기록을 서버에서 확인한 경우에만 완료 안내를 표시한다. 진입·새로고침 모두 재확인한다.
 - 직접 URL 접근, 클라이언트 상태, URL 파라미터, 데모 pending만으로 완료 페이지를 승인하지 않는다.
-- Phase 1 데모에는 완료 경로가 없다. 유효한 실제 완료 기록이 없으면 완료 메시지를 숨기고 접근 차단 규칙을 유지한다. 무효 접근·조회 실패 UX는 U11이다.
+- Phase 1 데모에는 실제 완료 승인 경로가 없다. 개발/Vercel Preview 전용 미리보기는 아래 별도 데모 규칙을 따른다. 유효한 실제 완료 기록이 없으면 실제 완료 메시지를 숨기고 접근 차단 규칙을 유지한다. 무효 접근·조회 실패 UX는 U11이다.
 - 실제 일정이 확정되면 `Your logo will be placed on [Date] at [Time].`에 실제 날짜·시간·시간대를 표시한다.
 - 일정이 미정이면 임의의 날짜·시간을 생성하지 않는다. 기존 문구 `Payment confirmed! We'll email you once your logo placement date is scheduled.`는 실제 결제 확인과 일정 알림 메일 연동이 있을 때만 사용한다(U08).
 - 결제 정보, 이메일, 업로드 로고, 결제 완료 상태는 유효한 완료 기록과 연결해 유지한다. 저장·접근 방식은 U11이다.
@@ -184,6 +184,13 @@ FAQ 4는 실제 결제 활성화 이후의 서비스 규칙이다. Phase 1 데�
 - Crypto는 10 USDT / TRON / TRC-20 / T...f4a1 / Payment Pending을 표시하며 데모임을 안내한다.
 - live 결제 호출·청구·송금·주소 복사·실제 송금 QR·wallet 연결이 없다. 데모에서 완료 전환·영상 배정·메일 발송이 없다.
 - 주요 feature CTA가 #7C3AED / hover #171717 / 흰색 글자 / 200ms를 적용하며 키보드 focus가 보인다.
-- AfterConfirmation 직접 접근·새로고침·데모 pending에서 완료 메시지가 노출되지 않는다. 실제 완료를 확인할 수 없으면 승인하지 않는다.
+- AfterConfirmation 직접 접근·새로고침·데모 pending에서 실제 완료 메시지가 노출되지 않는다. 개발/Vercel Preview 전용 미리보기는 데모로 명시하며 production에서는 차단한다. 실제 완료를 확인할 수 없으면 승인하지 않는다.
 - desktop/mobile에서 Preview·입력·패널이 겹치거나 잘리지 않는다.
 - 향후 실제 결제 검증·메일·일정 요구는 Phase 1 데모 테스트 통과와 구분하여 보류로 기록한다.
+
+## Development / Vercel Preview confirmation demo
+
+- Payment 패널에 `Preview Confirmation Page` 링크를 개발 환경 및 Vercel Preview에서만 표시한다. `Continue to Payment`는 계속 Payment 패널을 연다.
+- `/AfterConfirmation?preview=1`은 서버 환경 검사를 통과한 경우에만 `Preview / Demo Mode` 화면을 표시한다. production에서는 같은 URL도 기존 접근 차단 화면을 표시한다.
+- 이 별도 데모 경로는 결제 확인이나 실제 완료 승인이 아니다. 결제 기록 생성, 메일 발송, 로고 배정, 결제 활성화를 수행하지 않는다. 날짜·시간을 만들지 않는다.
+- 일반 `/AfterConfirmation` 접근과 새로고침의 기존 verified-payment 보호 규칙을 유지한다. 실제 서버 결제 확인 연동은 아직 구현되지 않았으며 계속 fail closed 상태다.
