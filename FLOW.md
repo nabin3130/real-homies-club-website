@@ -80,7 +80,7 @@ flowchart TD
   D -->|No| N[No invented schedule: notification copy requires real mail integration]
 ```
 
-- Phase 1 데모에서 이 페이지로 이동하는 성공 경로는 없다.
+- Phase 1 데모에는 실제 결제 성공 경로가 없다. 별도 환경 제한 미리보기 경로는 아래 규칙을 따른다.
 - URL, 클라이언트 상태, query parameter, 데모 클릭, 타이머로 보호를 우회하지 않는다.
 - 유효한 실제 완료 기록을 확인하기 전에는 완료 메시지를 표시하지 않는다. 무효 접근·조회 실패 UI는 U11이다.
 - 페이지는 Shared Panel 밖의 독립 화면이며 Preview·입력 폼·Payment/Q&A를 표시하지 않는다.
@@ -107,7 +107,7 @@ flowchart TD
 - Payment 재진입으로 기존 pending/confirmed 거래를 중복 생성하지 않는다.
 - 사용자 송금 주장·단순 거래 해시 입력·조회 실패는 성공 근거가 아니다.
 - 성공은 서버 검증 이후에만 인정한다. 패널 내 추가 완료 버튼 클릭이나 영수증 발송 완료를 페이지 이동 조건으로 추가하지 않는다.
-- 결제 성공과 메일 발송 상태는 분리한다. 실제 데이터·연동 없이 발송 완료나 게시 일정을 표시하지 않는다.
+- 결제 성공과 메일 발송 상태는 분리한다. 실제 데이터·연동 없이 실제 발송 완료나 실제 게시 일정을 표시하지 않는다. 명시된 샘플 일정은 아래 Preview 규칙을 따른다.
 
 ## 6. 남은 결정과 검증 경계
 
@@ -116,8 +116,8 @@ flowchart TD
 - U04: FAQ 7개 확정, 보류 항목 아님.
 - U05/U06: 실제 결제 상품·식별 구조, 실주소·거래 검증·환율·수수료. 데모 값은 확정.
 - U07: 실패·취소·만료·오송금·중복·재시도·복구. 환불의 법률 예외는 확정.
-- U08: 영수증·일정 알림 메일, 일정 데이터·시간대.
-- U09: 완료 안내 위치와 기존 ! 아이콘 존치·설명.
+- U08: 다음 달력 주 수요일·Asia/Seoul 규칙 확정. 실제 일정 저장·게시 시각과 영수증/일정 알림 메일은 미연동.
+- U09: 고객 확인 디자인 확정. 환경 제한 샘플 UI이며 실제 완료 승인 없음.
 - U10: 모바일 패널 배치·breakpoint·폭.
 - U11: 완료 기록 접근 인증·식별·조회, 무효 접근·실패·뒤로가기 UX.
 - U12: 향후 거래 진행 중 입력 변경·잠금·Q&A 재진입 정책.
@@ -127,6 +127,17 @@ Phase 1 데모 동작 검증과 향후 실제 연동 검증은 구분한다. 미
 ## Development / Vercel Preview confirmation demo
 
 - Payment 패널에 `Preview Confirmation Page` 링크를 개발 환경 및 Vercel Preview에서만 표시한다. `Continue to Payment`는 계속 Payment 패널을 연다.
-- `/AfterConfirmation?preview=1`은 서버 환경 검사를 통과한 경우에만 `Preview / Demo Mode` 화면을 표시한다. production에서는 같은 URL도 기존 접근 차단 화면을 표시한다.
-- 이 별도 데모 경로는 결제 확인이나 실제 완료 승인이 아니다. 결제 기록 생성, 메일 발송, 로고 배정, 결제 활성화를 수행하지 않는다. 날짜·시간을 만들지 않는다.
+- `/AfterConfirmation?preview=1`은 서버 환경 검사를 통과한 경우에만 작은 `Preview Mode` 배지와 샘플 주문 화면을 표시한다. production에서는 같은 URL도 기존 접근 차단 화면을 표시한다.
+- 이 별도 데모 경로는 결제 확인이나 실제 완료 승인이 아니다. 결제 기록 생성, 메일 발송, 로고 배정, 결제 활성화를 수행하지 않는다. 실제 게시 시간이나 예약 기록을 만들지 않는다. 데모 날짜는 아래 규칙으로 계산한다.
 - 일반 `/AfterConfirmation` 접근과 새로고침의 기존 verified-payment 보호 규칙을 유지한다. 실제 서버 결제 확인 연동은 아직 구현되지 않았으며 계속 fail closed 상태다.
+
+## Customer-facing preview flow and publication date
+
+1. 기존 Continue to Payment → Payment 패널 → 개발/Vercel Preview 전용 Preview Confirmation Page 링크.
+2. 서버가 환경과 `preview=1`을 확인한다. 실패하면 기존 Confirmation unavailable 화면. 성공하면 작은 Preview Mode 배지, 축하/감사 메시지, 샘플 주문과 날짜를 표시한다. Confirmed에는 Sample을 붙인다.
+3. 서버 현재 시각 → Asia/Seoul 날짜 → 현재 주 월요일 → 9일 뒤(다음 달력 주 수요일). 현재 주 수요일은 제외한다. 일요일/월요일 및 연도 경계도 이 규칙을 따른다.
+4. 페이지 진입 시 색종이 효과를 한 번 약 3–4초 재생한다. 입력·스크롤을 가로채지 않으며 reduced-motion이면 효과를 실행하지 않는다. Back to Home → `/`.
+5. 새로고침 시 환경 접근을 재확인하고 데모 날짜를 다시 계산한다. 데모 Confirmed/date는 결제 증거나 실제 예약이 아니다. 결제·메일·예약·fulfillment 쓰기 작업은 없다.
+6. 향후 실제 성공 경로는 서버 검증 결제 기록과 그 confirmation timestamp를 사용한다. 동일한 Asia/Seoul 다음 주 수요일 계산 규칙을 적용하되 실제 주문 표시 전에 유효한 기록 접근을 확인한다. 현재 프로덕션은 계속 fail closed.
+
+크림 배경과 중앙 반응형 카드, 기존 폰트/헤더를 유지한다. 홈 CTA는 #7C3AED/흰 글씨, #171717 hover, 200ms 전환과 키보드 포커스 표시를 제공한다.

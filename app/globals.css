@@ -2505,3 +2505,42 @@ html {
 .logo-crypto-details > div { padding: 12px 0; border-bottom: var(--border-editorial); }
 .logo-crypto-details dt { font-size: 14px; color: #666; }
 .logo-crypto-details dd { margin: 4px 0 0; font-weight: 700; }
+
+/* Customer-facing confirmation preview. Real order access remains server guarded. */
+.logo-confirmation .confirmation-preview-badge { display: inline-flex; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; color: #382067; background: #eee3fb; font-size: 13px; font-weight: 700; }
+.logo-confirmation .confirmation-subheadline { margin: 0 0 16px; font-size: clamp(24px, 4vw, 34px); line-height: 1.2; }
+.confirmation-schedule, .confirmation-order { width: min(100%, 640px); margin-top: 28px; padding: 28px; border: 1px solid var(--line); border-radius: 20px; background: var(--white); }
+.confirmation-schedule { background: #eee3fb; }
+.confirmation-schedule h2, .confirmation-order h2 { font-size: 18px; margin: 0 0 16px; }
+.confirmation-schedule time { display: block; font-size: clamp(24px, 4vw, 32px); font-weight: 700; line-height: 1.25; color: #382067; }
+.confirmation-timezone { display: block; margin-top: 12px; font-size: 13px; }
+.confirmation-order { text-align: left; }
+.confirmation-order dl { margin: 0; }
+.confirmation-order dl > div { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.confirmation-order dt { font-weight: 700; }
+.confirmation-order dd { margin: 0; text-align: right; }
+.confirmation-order dl > div:last-child { border-bottom: 0; }
+.confirmation-status { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #dceede; color: #24512c; font-size: 14px; font-weight: 700; }
+.confirmation-sample { font-size: 12px; margin-left: 8px; }
+.logo-confirmation .confirmation-demo-note { margin-top: 16px; font-size: 13px; line-height: 1.5; }
+.confirmation-home { margin-top: 28px; border-radius: 12px; min-width: 200px; }
+.confirmation-home:focus-visible { outline: 3px solid #171717; outline-offset: 4px; }
+.confirmation-confetti { position: fixed; inset: 0; z-index: 50; pointer-events: none; overflow: hidden; }
+.confirmation-confetti span { position: absolute; top: -24px; width: 9px; height: 14px; opacity: 0; animation: confirmation-confetti-fall 3.6s ease-in var(--confetti-delay) 1 both; }
+@keyframes confirmation-confetti-fall {
+  0% { opacity: 1; transform: translate3d(0, -24px, 0) rotate(0); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(var(--confetti-drift), 110vh, 0) rotate(var(--confetti-turn)); }
+}
+@media (max-width: 560px) {
+  .logo-confirmation { padding: 40px 0; }
+  .confirmation-schedule, .confirmation-order { padding: 20px; }
+  .confirmation-order dl > div { flex-wrap: wrap; gap: 8px; }
+  .confirmation-order dd { text-align: left; }
+  .confirmation-home { width: min(100%, 640px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .confirmation-confetti { display: none; }
+  .confirmation-confetti span { animation: none; }
+  .confirmation-home { transition: none; }
+}

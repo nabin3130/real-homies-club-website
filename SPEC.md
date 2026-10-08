@@ -120,12 +120,12 @@ FAQ 4는 실제 결제 활성화 이후의 서비스 규칙이다. Phase 1 데�
 
 - 경로는 `/AfterConfirmation`. Payment/Q&A 패널과 분리된 전체 화면이다.
 - 기존 홈페이지 헤더, 폰트, 디자인을 유지하며 중앙 메시지 레이아웃을 사용한다.
-- Preview, 입력 폼, Payment/Q&A 패널을 표시하지 않는다. 불필요한 버튼·카드·애니메이션을 추가하지 않는다.
+- 업로드 로고 Preview, 입력 폼, Payment/Q&A 패널을 표시하지 않는다. 고객 확인 화면의 주문/일정 카드, 축하 효과, 홈 CTA는 아래 규칙을 따른다.
 - 유효한 결제 완료 기록을 서버에서 확인한 경우에만 완료 안내를 표시한다. 진입·새로고침 모두 재확인한다.
 - 직접 URL 접근, 클라이언트 상태, URL 파라미터, 데모 pending만으로 완료 페이지를 승인하지 않는다.
 - Phase 1 데모에는 실제 완료 승인 경로가 없다. 개발/Vercel Preview 전용 미리보기는 아래 별도 데모 규칙을 따른다. 유효한 실제 완료 기록이 없으면 실제 완료 메시지를 숨기고 접근 차단 규칙을 유지한다. 무효 접근·조회 실패 UX는 U11이다.
 - 실제 일정이 확정되면 `Your logo will be placed on [Date] at [Time].`에 실제 날짜·시간·시간대를 표시한다.
-- 일정이 미정이면 임의의 날짜·시간을 생성하지 않는다. 기존 문구 `Payment confirmed! We'll email you once your logo placement date is scheduled.`는 실제 결제 확인과 일정 알림 메일 연동이 있을 때만 사용한다(U08).
+- 실제 일정이 미정이면 임의의 날짜·시간을 생성하지 않는다. 기존 문구 `Payment confirmed! We'll email you once your logo placement date is scheduled.`는 실제 결제 확인과 일정 알림 메일 연동이 있을 때만 사용한다(U08).
 - 결제 정보, 이메일, 업로드 로고, 결제 완료 상태는 유효한 완료 기록과 연결해 유지한다. 저장·접근 방식은 U11이다.
 
 ## 5. 향후 실제 결제 요구사항 — Phase 1에서 활성화 금지
@@ -163,8 +163,8 @@ FAQ 4는 실제 결제 활성화 이후의 서비스 규칙이다. Phase 1 데�
 | U05 | $10 USD 일회성, 로고 1개/영상 1개, 3개 플랫폼 교차 게시 해결됨. 실제 Stripe/Link 상품·세션·결제 식별 설정 미정 | 실결제 활성화 금지, 수량 선택·구독 추가 금지 |
 | U06 | 데모 10 USDT / TRON / TRC-20 / T...f4a1 / pending 확정. 실제 주소·검증 주체·확정 기준·환율·수수료 미정 | 실제 송금·Copy·QR·wallet 연결 금지 |
 | U07 | 법률상 필수 예외 외 환불 없음 확정. 실패·취소·만료·오송금·중복·재시도·pending 복구 미정 | 임의 자동 환불·재결제·타임아웃 성공 금지 |
-| U08 | 영수증/일정 알림 메일, 발신자, 실패 처리, 실제 일정 데이터·시간대 미정 | 가짜 메일 발송·발송 약속·일정 금지 |
-| U09 | 기존 완료 안내의 최종 위치 및 ! 아이콘 존치·설명 미정 | Phase 1 데모에 완료 UI 추가 금지 |
+| U08 | 다음 달력 주 수요일/Asia-Seoul 규칙 확정. 영수증/일정 알림 메일, 발신자, 실패 처리, 실제 일정 저장·게시 시각 미정 | 샘플 날짜만 표시. 실제 예약·가짜 메일 발송 금지 |
+| U09 | 확인 페이지의 축하 메시지·샘플 주문/일정 카드·Preview Mode 배지·색종이·홈 CTA 확정 | 환경 제한 데모만 허용. 실제 완료 승인 금지 |
 | U10 | 모바일 패널 배치·breakpoint·폭 미정. CTA 색·hover·글자·200ms 확정 | Shared Panel 유지, 구체 레이아웃 수치를 확정 요구로 지어내지 않음 |
 | U11 | 완료 기록 인증·식별·조회, 무효 접근·조회 실패·뒤로가기 UX 미정 | 보호 유지. URL이나 데모 상태로 완료 승인 금지 |
 | U12 | 향후 진행 중 입력 변경·거래 연결·잠금·Q&A 재진입 정책 미정 | 데모에서 거래 생성 금지, 실제 연동 시 중복 결제 방지 |
@@ -191,6 +191,17 @@ FAQ 4는 실제 결제 활성화 이후의 서비스 규칙이다. Phase 1 데�
 ## Development / Vercel Preview confirmation demo
 
 - Payment 패널에 `Preview Confirmation Page` 링크를 개발 환경 및 Vercel Preview에서만 표시한다. `Continue to Payment`는 계속 Payment 패널을 연다.
-- `/AfterConfirmation?preview=1`은 서버 환경 검사를 통과한 경우에만 `Preview / Demo Mode` 화면을 표시한다. production에서는 같은 URL도 기존 접근 차단 화면을 표시한다.
-- 이 별도 데모 경로는 결제 확인이나 실제 완료 승인이 아니다. 결제 기록 생성, 메일 발송, 로고 배정, 결제 활성화를 수행하지 않는다. 날짜·시간을 만들지 않는다.
+- `/AfterConfirmation?preview=1`은 서버 환경 검사를 통과한 경우에만 작은 `Preview Mode` 배지와 샘플 주문 화면을 표시한다. production에서는 같은 URL도 기존 접근 차단 화면을 표시한다.
+- 이 별도 데모 경로는 결제 확인이나 실제 완료 승인이 아니다. 결제 기록 생성, 메일 발송, 로고 배정, 결제 활성화를 수행하지 않는다. 실제 게시 시간이나 예약 기록을 만들지 않는다. 데모 날짜는 아래 규칙으로 계산한다.
 - 일반 `/AfterConfirmation` 접근과 새로고침의 기존 verified-payment 보호 규칙을 유지한다. 실제 서버 결제 확인 연동은 아직 구현되지 않았으며 계속 fail closed 상태다.
+
+## Customer-facing confirmation experience
+
+- 개발/Vercel Preview의 `/AfterConfirmation?preview=1`에는 작은 `Preview Mode` 배지와 `🎉 You're In!`, `Your Logo Is on Its Way!`를 표시한다. 크림 배경, 굵은 글꼴, 중앙 배치, 기존 사이트 헤더를 유지한다.
+- 감사 메시지와 TikTok/YouTube/Instagram 수요일 영상 안내, Scheduled Publication 카드, Order Summary 카드를 표시한다. 샘플 주문은 Logo Placement: 1 video, Platforms: TikTok/YouTube/Instagram, Total: $10 USD, Payment Status: Confirmed + Sample이다. `Sample order only. No payment, email, or placement booking.`을 항상 표시한다.
+- 게시일은 Asia/Seoul의 월요일 시작 주를 기준으로 **다음 달력 주 수요일**이다. 현재 주의 가까운 수요일을 선택하지 않는다. 2026-10-08 → 2026-10-14, 2026-10-12/14/15 → 2026-10-21.
+- Preview 기준 시각은 페이지 요청 시 서버의 현재 시각이다. 계산된 날짜는 샘플이며 실제 예약 기록을 만들지 않는다. 향후 실제 주문은 서버 검증된 payment confirmation timestamp를 계산 함수에 전달하고 새로고침에도 같은 기록을 사용한다. 브라우저 시각·query timestamp를 결제 증거로 사용하지 않는다. 게시 시각은 지정하지 않는다.
+- 진입마다 가벼운 CSS 색종이 48개를 한 번 재생한다. 각 애니메이션은 3.6초이며 마지막 조각도 3.8초 안에 종료하고 4초에 제거한다. 고정 장식 레이어는 pointer-events:none, aria-hidden이며 클릭·스크롤을 막지 않는다. prefers-reduced-motion:reduce이면 CSS/JS 모두 효과를 억제하고 실행 중 설정 변경도 중단한다.
+- Back to Home은 `/` 링크다. #7C3AED 배경, 흰 글씨, #171717 hover, 200ms 전환, 둥근 모서리와 키보드 포커스 표시를 제공한다.
+- 프로덕션에는 Preview UI를 노출하지 않는다. 실제 confirmed order는 서버 검증된 결제 기록이 필요하다. 현재 실제 결제 조회/이메일/예약/fulfillment 연동은 없으며 일반 접근은 계속 차단한다.
+- 기존 PlaceYourLogo 입력·업로드·가격·결제 옵션·Payment/FAQ 패널·Continue to Payment·preview 전용 링크는 변경하지 않는다.
