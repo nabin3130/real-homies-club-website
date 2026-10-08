@@ -1,28 +1,54 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { LogoPreview } from "./LogoPreview";
 
 type Panel = "closed" | "payment" | "qa";
 type Method = "Stripe" | "Link" | "Crypto";
-type MockState = "idle" | "pending" | "failed";
-const development = process.env.NODE_ENV === "development";
+const faqs = [
+  {
+    question: "Where will my logo appear?",
+    answer: "Your logo will appear in the upper-left corner of the video, inside a square placement area. Your logo's original proportions will be preserved."
+  },
+  {
+    question: "Who watches your videos?",
+    answer: "Our TikTok audience is primarily in Southeast Asia, with viewers also in Australia and Nigeria. Our YouTube audience is primarily in South Korea."
+  },
+  {
+    question: "How much does it cost?",
+    answer: "It costs $10 USD as a one-time payment for one logo in one video. The same video will be cross-posted to TikTok, YouTube, and Instagram."
+  },
+  {
+    question: "When will my logo be placed?",
+    answer: "Your logo will be assigned to the next video after your payment is confirmed. The exact posting date and time are not guaranteed in advance."
+  },
+  {
+    question: "Can I choose the video?",
+    answer: "No. Your logo will be assigned to the next video; you cannot choose a specific video."
+  },
+  {
+    question: "Which logo file formats are accepted?",
+    answer: "PNG, JPEG, and SVG are accepted."
+  },
+  {
+    question: "Can I get a refund?",
+    answer: "No refunds are offered, except where required by law."
+  }
+];
+const productSummary = "One logo in one video, cross-posted to TikTok, YouTube, and Instagram.";
 const formats = ["image/png", "image/jpeg", "image/svg+xml"];
 
 export function LogoPlacement() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [logo, setLogo] = useState<File | null>(null);
   const [src, setSrc] = useState<string | null>(null);
   const [method, setMethod] = useState<Method | "">("");
   const [panel, setPanel] = useState<Panel>("closed");
-  const [mockState, setMockState] = useState<MockState>("idle");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
   const help = useRef<HTMLButtonElement>(null);
-  const confirmed = useRef<HTMLButtonElement>(null);
+  const continueButton = useRef<HTMLButtonElement>(null);
   const uploadSequence = useRef(0);
   const objectUrl = useRef<string | null>(null);
 
@@ -34,7 +60,7 @@ export function LogoPlacement() {
 
   function closePanel() {
     setPanel("closed");
-    (panel === "qa" ? help : confirmed).current?.focus();
+    (panel === "qa" ? help : continueButton).current?.focus();
   }
 
   async function upload(file?: File) {
@@ -86,6 +112,10 @@ export function LogoPlacement() {
           <label htmlFor="logo-upload">Insert Your Logo</label>
           <input id="logo-upload" type="file" accept="image/png,image/svg+xml,image/jpeg,.png,.svg,.jpg,.jpeg" aria-describedby="logo-upload-note logo-error" onChange={(event) => { void upload(event.target.files?.[0]); }} />
           <p className="logo-note" id="logo-upload-note">PNG, SVG, or JPEG{logo ? ` · ${logo.name}` : ""}{loading ? " · Preparing preview…" : ""}</p>
+          <div className="logo-price">
+            <p><strong>$10 USD</strong> — one-time payment</p>
+            <p className="logo-note">{productSummary}</p>
+          </div>
           <fieldset>
             <legend>Choose your payment option</legend>
             <div className="logo-payment-options">
@@ -95,7 +125,7 @@ export function LogoPlacement() {
             </div>
           </fieldset>
           <p className="logo-error" id="logo-error" role="alert">{error}</p>
-          <button ref={confirmed} className="button button-primary" type="submit" disabled={loading}>Confirmed</button>
+          <button ref={continueButton} className="button button-primary logo-feature-cta" type="submit" disabled={loading}>Continue to Payment</button>
           <p className="logo-note">Opens the payment panel. No payment is collected.</p>
         </form>
         {panel !== "closed" && (
@@ -105,22 +135,33 @@ export function LogoPlacement() {
               <button type="button" className="logo-icon-button" aria-label="Close panel" onClick={closePanel}>×</button>
             </div>
             {panel === "qa" ? (
-              <><p className="logo-status">Temporary content</p><p>Questions and answers will appear here once the content is approved.</p></>
+              <div className="logo-faqs">
+                {faqs.map(({ question, answer }) => (
+                  <details key={question} className="logo-faq">
+                    <summary>{question}</summary>
+                    <p>{answer}</p>
+                  </details>
+                ))}
+              </div>
             ) : (
               <>
                 <p className="section-label">STEP 2 · {method}</p>
-                <p className="logo-status">{development ? "Development mock · No real payment" : "Payments are not available yet"}</p>
-                {development ? (
+                <div className="logo-price">
+                  <p><strong>Total: $10 USD</strong></p>
+                  <p className="logo-note">One-time payment. {productSummary}</p>
+                </div>
+                <p className="logo-status">Demo only · No live payments</p>
+                {method === "Crypto" ? (
                   <>
-                    <p>Preview payment states using the controls below. They do not process or verify a transaction.</p>
-                    <p role="status">{mockState === "pending" ? "Mock payment pending" : mockState === "failed" ? "Mock payment failed" : "Mock payment not started"}</p>
-                    <div className="logo-mock-controls">
-                      <button type="button" className="button" onClick={() => setMockState("pending")}>Preview pending</button>
-                      <button type="button" className="button" onClick={() => setMockState("failed")}>Preview failure</button>
-                      <button type="button" className="button button-primary" onClick={() => router.push("/AfterConfirmation?preview=mock")}>Preview confirmation layout</button>
-                    </div>
+                    <dl className="logo-crypto-details">
+                      <div><dt>Amount</dt><dd>10 USDT</dd></div>
+                      <div><dt>Network</dt><dd>TRON / TRC-20</dd></div>
+                      <div><dt>Address placeholder</dt><dd><code>T...f4a1</code></dd></div>
+                    </dl>
+                    <p className="logo-status" role="status">Payment Pending</p>
+                    <p className="logo-note">Demo only. No live payments. The address is a placeholder. Do not send funds. No transaction is being verified.</p>
                   </>
-                ) : <p>Payment processing has not been connected.</p>}
+                ) : <p className="logo-note">{method} checkout is not connected. No payment will be collected.</p>}
               </>
             )}
           </aside>

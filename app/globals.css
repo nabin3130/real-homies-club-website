@@ -2443,7 +2443,10 @@ html {
 .logo-layout-open { grid-template-columns: minmax(0, .8fr) minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
 .logo-preview-section .section-label { margin: 0 0 16px; }
 .logo-preview { position: relative; aspect-ratio: 9 / 16; width: 100%; max-width: 340px; background: #e9e7e2; border: var(--border-editorial); border-radius: var(--radius-image); overflow: hidden; display: grid; place-items: center; color: #666; }
-.logo-preview-image { position: absolute; height: auto; max-height: 80%; object-fit: contain; transform: translate(-50%, -50%); }
+.logo-preview-background { display: block; width: 100%; height: 100%; object-fit: cover; }
+.logo-preview-overlay { position: absolute; aspect-ratio: 1; display: grid; place-items: center; border: 1px dashed rgba(255, 255, 255, .8); background: rgba(255, 255, 255, .85); border-radius: 8px; overflow: hidden; }
+.logo-preview-overlay span { padding: 4px; font-size: clamp(10px, 1vw, 14px); text-align: center; }
+.logo-preview-image { display: block; width: 100%; height: 100%; object-fit: contain; }
 .logo-note { font-size: 14px; line-height: 1.5; color: #666; overflow-wrap: anywhere; }
 .logo-form { min-width: 0; display: flex; flex-direction: column; gap: 16px; }
 .logo-form-heading, .logo-panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
@@ -2465,9 +2468,6 @@ html {
 .logo-shared-panel { min-width: 0; border-left: var(--border-editorial); padding-left: 24px; font-size: 17px; line-height: 1.5; overflow-wrap: anywhere; }
 .logo-panel-heading h2 { font-size: 28px; line-height: 1.2; margin: 0; }
 .logo-status { padding: 12px; border: var(--border-editorial); border-radius: 12px; font-size: 14px; font-weight: 700; }
-.logo-mock-controls { display: flex; flex-direction: column; gap: 12px; }
-.logo-mock-controls .button { background: var(--white); color: var(--ink); padding: 12px 16px; }
-.logo-mock-controls .button-primary { background: var(--ink); color: white; }
 .logo-confirmation { min-height: calc(100svh - 120px); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 64px 0; }
 .logo-confirmation h1 { max-width: 800px; font-size: clamp(36px, 5vw, 64px); line-height: 1.05; margin: 16px 0 24px; }
 .logo-confirmation p { max-width: 640px; font-size: var(--type-body); line-height: 1.5; margin: 8px 0; }
@@ -2490,3 +2490,18 @@ html {
   .logo-site-header .brand-mark { width: 40px; height: 40px; }
   .logo-preview { max-width: 240px; }
 }
+
+/* Phase 1 feature CTAs only; other site buttons retain their existing styles. */
+.button.logo-feature-cta { background: #7C3AED; color: #FFFFFF; transition: background-color 200ms ease, color 200ms ease, transform 200ms ease; }
+.button.logo-feature-cta:hover { background: #171717; color: #FFFFFF; }
+.logo-price { padding: 16px; border: var(--border-editorial); border-radius: 12px; background: var(--white); }
+.logo-price p { margin: 0; line-height: 1.5; }
+.logo-price strong { font-size: 22px; }
+.logo-price .logo-note { margin: 8px 0 0; }
+.logo-faq { border-bottom: var(--border-editorial); padding: 16px 0; }
+.logo-faq summary { cursor: pointer; font-weight: 700; }
+.logo-faq p { margin: 12px 0 0; }
+.logo-crypto-details { margin: 20px 0; }
+.logo-crypto-details > div { padding: 12px 0; border-bottom: var(--border-editorial); }
+.logo-crypto-details dt { font-size: 14px; color: #666; }
+.logo-crypto-details dd { margin: 4px 0 0; font-weight: 700; }

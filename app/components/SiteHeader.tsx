@@ -20,7 +20,7 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
       </nav>
       <div className="logo-header-actions">
         <MobileMenu items={items} />
-        <Link className="button button-primary logo-header-cta" href="/PlaceYourLogo">Place Your Logo</Link>
+        <Link className="button button-primary logo-feature-cta logo-header-cta" href="/PlaceYourLogo">Place Your Logo</Link>
       </div>
     </header>
   );
