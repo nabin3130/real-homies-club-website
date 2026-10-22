@@ -85,6 +85,13 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.png",
   },
+
+  verification: {
+    google: "S7aeUDjQ6ElTLll1vlNVoA5oLg36uQgy1n7nDUXRCTY",
+    other: {
+      "naver-site-verification": "399e842b515fdbdd7d41563ce6de9a874dff5802",
+    },
+  },
 };
 
 type RootLayoutProps = Readonly<{
